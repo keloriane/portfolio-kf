@@ -6,7 +6,7 @@ const Cursor = () => {
     const cursor = useRef(null);
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e:MouseEvent) => {
             if (cursor.current) {
                 gsap.to(cursor.current, {
                     x: e.clientX,
