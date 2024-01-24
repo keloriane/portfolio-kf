@@ -8,6 +8,10 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -17,17 +21,91 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background-color: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.logo-nav-emp {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+}
+
+.nav-item {
+  overflow: hidden;
+  height: 30px;
+}
+
+input {
+  color: #A7A7A7;
+  font-size:18px;
+  font-weight: 500;
+  border-bottom:1px solid black;
+}
+textarea {
+  width: 100%;
+  border-bottom:1px solid black;
+}
+
+
+.nav-item:hover .letter, 
+.nav-item.play .letter {
+  transform: translateY(-100%);
+}
+
+.mask-text {
+  position: absolute;
+  mask-image: url('./../assets/images/circle.svg');
+  background: blue;
+  mask-repeat: no-repeat;
+}
+
+.c-cursor{
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  top: 0;
+  position: fixed;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nav-item .block:last-child {
+  color: #BE2525;
+}
+.nav-item .letter {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.024, 1);
+}
+.letter:nth-child(1) {
+  transition-delay: 0s;
+}
+.letter:nth-child(2) {
+  transition-delay: 0.03s;
+}
+.letter:nth-child(3) {
+  transition-delay: 0.06s;
+}
+.letter:nth-child(4) {
+  transition-delay: 0.09s;
+}
+.letter:nth-child(5) {
+  transition-delay: 0.12s;
+}
+.letter:nth-child(6) {
+  transition-delay: 0.15s;
+}
+.letter:nth-child(7) {
+  transition-delay: 0.18s;
+}
+.letter:nth-child(8) {
+  transition-delay: 0.21s;
 }
