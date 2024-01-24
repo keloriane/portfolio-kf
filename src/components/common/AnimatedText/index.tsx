@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { twMerge } from 'tailwind-merge';
 
 interface AnimatedTextProps {
 	text: string;
@@ -13,7 +14,7 @@ interface AnimatedTextProps {
 	highlightWords?: string[]; // Add this prop to highlight certain words
 	highlightColor?: string; // Add this prop to set the highlight color
 }
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, duration, className,highlightWords = [], highlightColor = 'red', }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, duration, className, highlightWords = [], highlightColor = 'red', }) => {
 	const [ref, inView] = useInView({
 		triggerOnce: true,
 		threshold: 0.1,
@@ -49,9 +50,9 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, dur
 					color: highlightWords.includes(str) ? highlightColor : 'inherit',
 				}}
 			>
-      <TagName ref={(el) => (elementsRef.current[index] = el)}>{str}</TagName>
+				<TagName ref={(el) => (elementsRef.current[index] = el)}>{str}</TagName>
 				{splitBy !== 'letter' && ' '}
-    </span>
+			</span>
 		);
 	};
 
@@ -72,7 +73,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, dur
 			display: 'flex',
 			flexWrap: 'wrap',
 			gap: gap,
-		}} className={className}>
+		}} className={twMerge(`gap-[${gap}]`, className)}>
 			{splitText.map((str, index) => createElement(str, index))}
 		</div>
 	);

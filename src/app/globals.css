@@ -41,19 +41,29 @@ body {
   height: 30px;
 }
 
+.project-item {
+  border-top: .5px solid black;
+  border-bottom: .5px solid black;
+}
+
+.project-item:hover svg path {
+  fill: #BE2525;
+}
+
 input {
   color: #A7A7A7;
-  font-size:18px;
+  font-size: 18px;
   font-weight: 500;
-  border-bottom:1px solid black;
+  border-bottom: 1px solid black;
 }
+
 textarea {
   width: 100%;
-  border-bottom:1px solid black;
+  border-bottom: 1px solid black;
 }
 
 
-.nav-item:hover .letter, 
+.nav-item:hover .letter,
 .nav-item.play .letter {
   transform: translateY(-100%);
 }
@@ -65,7 +75,7 @@ textarea {
   mask-repeat: no-repeat;
 }
 
-.c-cursor{
+.c-cursor {
   background-color: white;
   height: 32px;
   width: 32px;
@@ -81,31 +91,40 @@ textarea {
 .nav-item .block:last-child {
   color: #BE2525;
 }
+
 .nav-item .letter {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.024, 1);
 }
+
 .letter:nth-child(1) {
   transition-delay: 0s;
 }
+
 .letter:nth-child(2) {
   transition-delay: 0.03s;
 }
+
 .letter:nth-child(3) {
   transition-delay: 0.06s;
 }
+
 .letter:nth-child(4) {
   transition-delay: 0.09s;
 }
+
 .letter:nth-child(5) {
   transition-delay: 0.12s;
 }
+
 .letter:nth-child(6) {
   transition-delay: 0.15s;
 }
+
 .letter:nth-child(7) {
   transition-delay: 0.18s;
 }
+
 .letter:nth-child(8) {
   transition-delay: 0.21s;
 }

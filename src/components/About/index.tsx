@@ -7,25 +7,25 @@ import Col from '@/components/common/Col';
 
 
 
-const About = ({className}:{className:string}) => {
-    
-    const {x,y} = useMousePosition();
+const About = ({ className }: { className: string }) => {
+
+    const { x, y } = useMousePosition();
 
 
 
-    return ( 
+    return (
 
         <section className='w-screen h-screen flex items-center'>
             <Container>
-                <Col colStart={[4]} colEnd={[18]} >
+                <Col colStart={[4]} colEnd={[20]} >
                     <Characters
-                        className="text-l text-center font-bold"
-                        />
+                        className="sm:text-[16px] md:text-[35px] lg:text-[40px] xl:text-l text-center font-bold"
+                    />
                 </Col>
             </Container>
         </section>
 
     );
 }
- 
+
 export default About;

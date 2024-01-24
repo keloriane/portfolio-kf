@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 import Services from "@/components/Services";
 import Cursor from '@/components/common/Cursor';
 import Contact from "@/components/Contact";
+import Projects from '@/components/Projects';
  
 // Font files can be colocated inside of `pages`
 const satoshi = localFont({ src: [
@@ -20,6 +21,14 @@ const satoshi = localFont({ src: [
     },
 ] })
 
+const clashDisplay = localFont({ src: [
+  {
+    path: './../assets/fonts/ClashDisplay-Light.ttf',
+    weight: 'normal',
+    style: 'normal'
+  },
+] })
+
 export default function Home() {
 
   return (
@@ -28,9 +37,9 @@ export default function Home() {
       <Cursor />
       <Nav />
       <Hero className={satoshi.className} />
-      {/* Projects */}
-      <About className={satoshi.className} />
+      <Projects className={clashDisplay.className} />
       <Services className={satoshi.className} />
+      <About className={satoshi.className} />
       //FUN
       <Contact className={satoshi.className} />
     </main>

@@ -1,0 +1,21 @@
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+export async function GET() {
+    const resend = new Resend(process.env.SEND_API_KEY);
+    try {
+        const { data } = await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: 'kevin.flbt@gmail.com',
+            subject: 'Hello World',
+            html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+        })
+
+        return NextResponse.json({ data });
+
+    }
+    catch (error) {
+        console.error(error);
+        return NextResponse.json({ error });
+    }
+}
