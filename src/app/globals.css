@@ -9,6 +9,17 @@
 }
 
 
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html div {
+  will-change: transform;
+
+
+}
 
 
 
@@ -40,6 +51,7 @@ body {
   overflow: hidden;
   height: 30px;
 }
+
 
 .project-item {
   border-top: .5px solid black;

@@ -1,20 +1,20 @@
 import type { Config } from "tailwindcss";
 const extraColumns = {
-	13: '13',
-	14: '14',
-	15: '15',
-	16: '16',
-	17: '17',
-	18: '18',
-	19: '19',
-	20: '20',
-	21: '21',
-	22: '22',
-	23: '23',
-	24: '24',
-	25: '25',
-	26: '26',
-	27: '27',
+  13: '13',
+  14: '14',
+  15: '15',
+  16: '16',
+  17: '17',
+  18: '18',
+  19: '19',
+  20: '20',
+  21: '21',
+  22: '22',
+  23: '23',
+  24: '24',
+  25: '25',
+  26: '26',
+  27: '27',
 };
 const config: Config = {
   content: [
@@ -23,11 +23,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-		{
-			pattern: /col-(start|end)-(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27)/,
-			variants: ['sm', 'md', 'lg', 'xl', '2xl'],
-		},
-	],
+    {
+      pattern: /col-(start|end)-(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+  ],
   theme: {
     extend: {
       backgroundImage: {
@@ -35,7 +35,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      colors:{
+      colors: {
         accent: "#BE2525"
       },
       gridColumnStart: extraColumns,
@@ -47,7 +47,8 @@ const config: Config = {
         xl: "7rem",
         lg: "5.602rem",
         l: "2.5rem",
-        md: "1.4rem"
+        md: "1.4rem",
+        sNumber: "7.7rem",
 
       },
       fontWeight: {

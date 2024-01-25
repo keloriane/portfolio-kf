@@ -15,7 +15,7 @@ const Contact = ({ className }: { className: string }) => {
     return (
         <section className={twMerge("h-screen w-screen", className)}>
             <Container className="w-screen">
-                <Col colStart={[2, 2, 2, 1]} colEnd={[25, 25, 25, 14]}>
+                <Col colStart={[2, 2, 2, 2]} colEnd={[25, 25, 25, 14]}>
                     <div className="font-bold  text-black">
                         <AnimatedText text="Do you have an idea ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
                         <AnimatedText text="Want to bring it to life ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
@@ -49,7 +49,7 @@ const Contact = ({ className }: { className: string }) => {
                     </form>
 
                 </Col>
-                <Col colStart={[2, 2, 2, 17]} colEnd={[25, 25, 25, 27]} className="flex flex-col items-center ">
+                <Col colStart={[2, 2, 2, 17]} colEnd={[27, 27, 27, 27]} className="flex flex-col items-center ">
                     <div className="flex gap-[30px]">
                         <div className="flex flex-col ">
                             <span className="text-[30px] font-bold block">Contact details</span>
