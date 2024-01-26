@@ -4,8 +4,7 @@ import { twMerge } from "tailwind-merge";
 import AnimatedText from "../common/AnimatedText";
 import Container from "../common/Container";
 import Col from "../common/Col";
-import Link from "next/link";
-import gsap from 'gsap'
+import toast from "react-hot-toast"
 
 
 
@@ -41,11 +40,11 @@ const Contact = ({ className }: { className: string }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
+            })
+            console.log(response.status);
+            if (response.status === 200) {
+                toast.success(`Hey ${formData.firstname},your message was sent succesfully!`);
                 console.log('Form submitted successfully!');
-                //reset the form data
                 setFormData({
                     firstname: '',
                     lastname: '',
@@ -53,8 +52,6 @@ const Contact = ({ className }: { className: string }) => {
                     phone: '',
                     message: '',
                 });
-            } else {
-                console.error('Failed to submit form.');
             }
         } catch (error) {
             console.error('An error occurred during form submission:', error);
@@ -69,7 +66,7 @@ const Contact = ({ className }: { className: string }) => {
                 <Container className="w-screen">
                     <Col colStart={[2, 2, 2, 2]} colEnd={[14, 14, 14, 14]}>
                         <div className="font-bold">
-                            <AnimatedText text="Do you have an idea ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
+                            <AnimatedText text="Do you have an idea ?" splitBy="word" gap="10px" duration={.3} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
                         </div>
                     </Col>
                      <Col colStart={[16, 16, 16, 16]} colEnd={[26, 26, 26, 26]}>

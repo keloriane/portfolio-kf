@@ -20,7 +20,8 @@ html h5,
 html h6,
 html div {
   will-change: transform;
-
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: geometricPrecision !important;
 
 }
 

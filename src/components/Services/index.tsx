@@ -72,16 +72,16 @@ const Services = ({ satoshi, clash }: { satoshi: string, clash: string }) => {
       timeline
       .fromTo(
         boxRefs[index].current,
-        { yPercent: 100, duration: 0.1, ease: "cubic-bezier(.785,.135,.15,.86)" },
-        { yPercent: 0, ease: "cubic-bezier(.785,.135,.15,.86)" }
+        { yPercent: 100, duration: 0.1, ease: "cubic-bezier(.215,.61,.355,1)" },
+        { yPercent: 0, ease: "cubic-bezier(.215,.61,.355,1)" }
         )
         .fromTo(
           numberRefs[index].current,
           { color: "#313131", duration: 0.2, },
           { color: "white", },-0.12
           )
-          .fromTo(titleRefs[index].current, { duration: 0.2, color: "#313131" }, { opacity: 1, color: "white", }, 0.2)
-          .fromTo([subtitleRefs[index].current?.childNodes], { opacity:0, duration: 0.05, y:20, color: "#313131" }, { opacity: 1, stagger: 0.1, y:0,  color: "white", },-.01)
+          .fromTo(titleRefs[index].current, { duration: 0.2, color: "#313131" }, { opacity: 1, color: "white", ease:"cubic-bezier(.215,.61,.355,1)" }, 0.2)
+          .fromTo([subtitleRefs[index].current?.childNodes], { opacity:0, duration: 0.05, y:20, color: "#313131" }, { opacity: 1, stagger: 0.1, y:0,  color: "white", ease:"cubic-bezier(.215,.61,.355,1)" },-.01)
           .fromTo(techs[index].current, { duration: 0.2, opacity: 0, y: 10 }, { opacity: 1, y: -60, }, 0.3)
 
 

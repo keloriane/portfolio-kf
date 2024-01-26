@@ -16,10 +16,10 @@ const Hero = ({ className }: { className: string }) => {
     return (
         <header className={twMerge("flex h-screen w-screen items-center justify-center flex-wrap ", className)}>
             <div className='flex flex-col items-center justify-center gap-[30px]'>
-                <div className="flex flex-col items-center xl:flex-row lg:flex-col md:flex-col sm:flex-col md:gap-[30px] gap-[30px] lg:gap-[30px] lg:gap-[87px]">
+                <div className="flex flex-col items-center xl:flex-row lg:flex-col md:flex-col sm:flex-col md:gap-[30px] gap-[30px] lg:gap-[87px]">
                     <div className="flex items-center flex-col">
-                        <AnimatedText text="Creative Developer" gap={'25px'} splitBy="word"  duration={.5} as="h2" className="text-[37px] md:text-[60px] xl:text-lg lg:text-lg capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] " />
-                        <AnimatedText text="Based in Brussels" gap={'25px'} splitBy="word" duration={.5} as="h2" className="text-[37px] md:text-[60px] xl: lg:text-lg capitalize font-bold" />
+                        <AnimatedText text="Creative Developer" gap={'25px'} splitBy="word"  duration={.3} as="h2" className="text-[37px] md:text-[60px] xl:text-lg lg:text-lg capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] " />
+                        <AnimatedText text="Based in Brussels" gap={'25px'} splitBy="word" duration={.3} as="h2" className="text-[37px] md:text-[60px] xl:text-lg lg:text-lg capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px]" />
                     </div>
                     <div>
                         <Image src={profil} alt="profile" className='lg:w-[367px] md:w-[275px] w-[135px]' />
