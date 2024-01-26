@@ -8,6 +8,9 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 html h1,
 html h2,
@@ -32,7 +35,7 @@ html div {
 }
 
 body {
-  color: black;
+  color: #313131;
   background-color: white;
 }
 
@@ -43,7 +46,7 @@ body {
 }
 
 .logo-nav-emp {
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1px #313131;
   color: transparent;
 }
 
@@ -54,8 +57,8 @@ body {
 
 
 .project-item {
-  border-top: .5px solid black;
-  border-bottom: .5px solid black;
+  border-top: .5px solid #313131;
+  border-bottom: .5px solid #313131;
 }
 
 .project-item:hover svg path {
@@ -63,15 +66,19 @@ body {
 }
 
 input {
-  color: #A7A7A7;
+  color: white;
   font-size: 18px;
   font-weight: 500;
-  border-bottom: 1px solid black;
+  background:transparent;
+  border-bottom: 1px solid white;
 }
 
 textarea {
-  width: 100%;
-  border-bottom: 1px solid black;
+     color: white;
+    font-size: 18px;
+    font-weight: 500;
+    background: transparent;
+    border-bottom: 1px solid white;
 }
 
 

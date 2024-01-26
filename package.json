@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
+    "@studio-freight/react-lenis": "^0.0.43",
     "classnames": "^2.5.1",
     "gsap": "^3.12.5",
     "html-react-parser": "^5.1.1",

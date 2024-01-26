@@ -3,13 +3,17 @@ import { projects } from "./projects";
 import { twMerge } from "tailwind-merge";
 import Col from "../common/Col";
 import Container from "../common/Container";
+import Title from "../common/Title";
+
 
 const Projects = ({ className }: { className: string }) => {
     return (
         <section className={className}>
-            <h2>Selected Projects</h2>
             <Container className="w-screen">
-                <Col colStart={[3, 3, 3]} colEnd={[25, 25, 22]}>
+                <Col colStart={[2, 2, 2]} colEnd={[25, 25, 22]}>
+                    <Title title="Selected Projects" />
+                </Col>
+                <Col colStart={[3, 3, 3]} colEnd={[25, 25, 22]} className="mt-[9rem]">
                     <div className="flex flex-col w-full">
                         <ul>
                             {

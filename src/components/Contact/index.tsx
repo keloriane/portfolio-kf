@@ -1,175 +1,148 @@
 "use client"
+import { useLayoutEffect, useState, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import AnimatedText from "../common/AnimatedText";
 import Container from "../common/Container";
 import Col from "../common/Col";
 import Link from "next/link";
+import gsap from 'gsap'
+
 
 
 
 
 const Contact = ({ className }: { className: string }) => {
+    
+
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    // Handle input change
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    // Handle form submission
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                console.log('Form submitted successfully!');
+                //reset the form data
+                setFormData({
+                    firstname: '',
+                    lastname: '',
+                    email: '',
+                    phone: '',
+                    message: '',
+                });
+            } else {
+                console.error('Failed to submit form.');
+            }
+        } catch (error) {
+            console.error('An error occurred during form submission:', error);
+        }
+    };
 
 
 
     return (
-        <section className={twMerge("h-screen w-screen", className)}>
-            <Container className="w-screen">
-                <Col colStart={[2, 2, 2, 2]} colEnd={[25, 25, 25, 14]}>
-                    <div className="font-bold  text-black">
-                        <AnimatedText text="Do you have an idea ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
-                        <AnimatedText text="Want to bring it to life ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
-                    </div>
-                    <p
-                        className="lg:text-[40px] md:text-[30px] sm:text-[14px] text-black"
-                    > I am always looking for freelance opportunities in any company agency or startup</p>
-                </Col>
-            </Container>
-
-            <Container className="mt-[175px]">
-                <Col
-                    colStart={[2, 2, 2, 2]} colEnd={[25, 25, 25, 14]} className="flex items-center"
-                >
-                    <form className="flex flex-col gap-50px ">
-                        <div className="grid grid-cols-2 w-full gap-[68px] mt-[40px]">
-                            <input type="text" placeholder="Firstname" className="" />
-                            <input type="text" placeholder="Lastname" className="" />
+        <footer className="mt-[100vh]">
+            <section className={twMerge("h-screen w-screen bottom-0 bg-[#313131] text-white fixed pt-[100px]  -z-10", className)}>
+                <Container className="w-screen">
+                    <Col colStart={[2, 2, 2, 2]} colEnd={[14, 14, 14, 14]}>
+                        <div className="font-bold">
+                            <AnimatedText text="Do you have an idea ?" splitBy="word" gap="5px" duration={1} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
                         </div>
-                        <div className="grid grid-cols-2 w-full gap-[68px] mt-[40px]">
-                            <input type="email" placeholder="mail" className=" " />
-                            <input type="tel" placeholder="Phone number" className="" />
+                    </Col>
+                     <Col colStart={[16, 16, 16, 16]} colEnd={[26, 26, 26, 26]}>
+                        <div className="mt-[60px]">
+                            <p
+                                className="lg:text-[40px] md:text-[30px] sm:text-[14px] "
+                            > I am always looking for freelance opportunities in any company agency or startup</p>
                         </div>
-                        <div className="mt-[40px]">
-                            <textarea placeholder="Message" name="" id="" cols={100} rows={10} className="">
-
-                            </textarea>
-                        </div>
-
-                        <button type="submit" >Send</button>
-                    </form>
-
-                </Col>
-                <Col colStart={[2, 2, 2, 17]} colEnd={[27, 27, 27, 27]} className="flex flex-col items-center ">
-                    <div className="flex gap-[30px]">
-                        <div className="flex flex-col ">
-                            <span className="text-[30px] font-bold block">Contact details</span>
-                            <ul className="flex flex-col gap-[24px] mt-[10px]">
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clipPath="url(#clip0_75_78)">
-                                                <path fillRule="evenodd" clipRule="evenodd" d="M8.80005 13.9067L12.2725 16.2809L15.6197 13.9717L23.1228 21.3742C22.9253 21.438 22.7142 21.4724 22.4946 21.4724H2.04541C1.77547 21.4724 1.5178 21.4196 1.28099 21.3251L8.80005 13.9067ZM24.54 7.82323V19.427C24.54 19.73 24.4737 20.0172 24.356 20.2761L17.0013 13.0196L24.54 7.82323ZM1.1578e-06 7.88827L7.41354 12.9582L0.130063 20.146C0.0437999 19.9161 -0.00026041 19.6725 1.1578e-06 19.427V7.88827ZM22.4946 3.06738C23.6234 3.06738 24.54 3.98272 24.54 5.11279V5.83181L12.2675 14.292L1.1578e-06 5.90175V5.11279C1.1578e-06 3.98395 0.915343 3.06738 2.04541 3.06738H22.4946Z" fill="#625F5F" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_75_78">
-                                                    <rect width="24.54" height="24.54" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </span>
-                                    <Link href="mailto:kevin.flabat@protonmail.com">
-                                        kevin.flabat@protonmail.com
-                                    </Link>
-                                </li>
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M20.6608 17.8562L16.1872 15.5555C15.9961 15.4578 15.7837 15.4372 15.582 15.4968C15.3803 15.5565 15.2002 15.6931 15.0688 15.8862L13.0876 18.7909C9.9783 17.0317 7.47604 14.029 6.01004 10.2978L8.4306 7.92042C8.59185 7.76304 8.70597 7.54692 8.7557 7.30475C8.80543 7.06259 8.78806 6.80758 8.70621 6.57832L6.78894 1.20995C6.69911 0.962817 6.54024 0.761041 6.33972 0.639416C6.13919 0.51779 5.90959 0.483938 5.6905 0.543696L1.5364 1.69406C1.32517 1.7526 1.13671 1.89532 1.00178 2.09894C0.866843 2.30255 0.793408 2.55504 0.793457 2.81519C0.793457 15.1097 9.09766 25.0556 19.3271 25.0556C19.544 25.0558 19.7545 24.9677 19.9242 24.8058C20.094 24.6438 20.213 24.4176 20.2618 24.1641L21.2204 19.1791C21.2699 18.9149 21.2411 18.6383 21.139 18.3969C21.0368 18.1554 20.8677 17.9642 20.6608 17.8562Z" fill="#625F5F" />
-                                        </svg>
-
-                                    </span>
-                                    <Link href="phone:+32494430347">
-                                        +32 494 43 03 47
-                                    </Link>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div className="flex flex-col gap-20px">
-                            <span className="text-[30px] font-bold block">Social</span>
-                            <ul className="flex flex-col gap-[24px] mt-[10px]">
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6.28675 25.1232H1.19883V8.73865H6.28675V25.1232ZM3.74005 6.50364C2.1131 6.50364 0.793457 5.15607 0.793457 3.52911C0.793457 2.74763 1.1039 1.99815 1.65649 1.44556C2.20909 0.892963 2.95856 0.58252 3.74005 0.58252C4.52154 0.58252 5.27101 0.892963 5.82361 1.44556C6.3762 1.99815 6.68664 2.74763 6.68664 3.52911C6.68664 5.15607 5.36646 6.50364 3.74005 6.50364ZM25.3292 25.1232H20.2523V17.1473C20.2523 15.2465 20.2139 12.8088 17.607 12.8088C14.9616 12.8088 14.5563 14.874 14.5563 17.0104V25.1232H9.47383V8.73865H14.3536V10.9737H14.4248C15.1041 9.68634 16.7633 8.3278 19.2388 8.3278C24.3881 8.3278 25.3347 11.7187 25.3347 16.1229V25.1232H25.3292Z" fill="#625F5F" />
-                                        </svg>
-
-                                    </span>
-                                    <Link href="https://www.linkedin.com/in/kevin-flabat-420a74ba/" >
-                                        Linkedin
-                                    </Link>
-                                </li>
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.21207 20.2406C9.21207 20.3421 9.09535 20.4233 8.94819 20.4233C8.78073 20.4385 8.66402 20.3573 8.66402 20.2406C8.66402 20.1391 8.78073 20.0579 8.92789 20.0579C9.08013 20.0427 9.21207 20.1239 9.21207 20.2406ZM7.63389 20.0123C7.59837 20.1137 7.69986 20.2305 7.8521 20.2609C7.98404 20.3116 8.13627 20.2609 8.16672 20.1594C8.19717 20.0579 8.10075 19.9412 7.94851 19.8955C7.81658 19.86 7.66942 19.9108 7.63389 20.0123ZM9.87683 19.926C9.72967 19.9615 9.62818 20.0579 9.6434 20.1746C9.65862 20.2761 9.79056 20.3421 9.9428 20.3066C10.09 20.2711 10.1914 20.1746 10.1762 20.0731C10.161 19.9767 10.024 19.9108 9.87683 19.926ZM13.2159 0.480469C6.17751 0.480469 0.793457 5.82393 0.793457 12.8623C0.793457 18.4899 4.33546 23.3056 9.39475 25.0005C10.0443 25.1172 10.2726 24.7163 10.2726 24.3865C10.2726 24.0719 10.2574 22.3364 10.2574 21.2707C10.2574 21.2707 6.70526 22.0319 5.95931 19.7585C5.95931 19.7585 5.38081 18.2818 4.54859 17.9013C4.54859 17.9013 3.38653 17.1046 4.62979 17.1198C4.62979 17.1198 5.89334 17.2213 6.58855 18.429C7.69986 20.3878 9.56221 19.8245 10.2879 19.4896C10.4046 18.6777 10.7344 18.1144 11.0998 17.7795C8.26313 17.4648 5.40111 17.0538 5.40111 12.1721C5.40111 10.7766 5.78677 10.0764 6.59869 9.18325C6.46676 8.85341 6.03542 7.49344 6.73063 5.73766C7.7912 5.40782 10.232 7.10778 10.232 7.10778C11.2469 6.8236 12.338 6.67644 13.4188 6.67644C14.4997 6.67644 15.5907 6.8236 16.6056 7.10778C16.6056 7.10778 19.0465 5.40274 20.107 5.73766C20.8022 7.49851 20.3709 8.85341 20.239 9.18325C21.0509 10.0814 21.5482 10.7817 21.5482 12.1721C21.5482 17.069 18.5593 17.4598 15.7227 17.7795C16.1895 18.1804 16.5853 18.9415 16.5853 20.134C16.5853 21.8441 16.5701 23.9602 16.5701 24.3763C16.5701 24.7062 16.8035 25.1071 17.448 24.9903C22.5225 23.3056 25.963 18.4899 25.963 12.8623C25.963 5.82393 20.2542 0.480469 13.2159 0.480469ZM5.72588 17.9824C5.65991 18.0332 5.67513 18.1499 5.7614 18.2463C5.84259 18.3275 5.95931 18.363 6.02528 18.2971C6.09124 18.2463 6.07602 18.1296 5.98975 18.0332C5.90856 17.952 5.79185 17.9165 5.72588 17.9824ZM5.17783 17.5714C5.14231 17.6374 5.19306 17.7186 5.29455 17.7693C5.37574 17.8201 5.47723 17.8048 5.51275 17.7338C5.54827 17.6678 5.49753 17.5866 5.39604 17.5359C5.29455 17.5054 5.21335 17.5207 5.17783 17.5714ZM6.82197 19.3779C6.74078 19.4439 6.77123 19.5961 6.88794 19.6926C7.00466 19.8093 7.15182 19.8245 7.21778 19.7433C7.28375 19.6773 7.25331 19.5251 7.15182 19.4287C7.04018 19.312 6.88794 19.2967 6.82197 19.3779ZM6.24348 18.632C6.16229 18.6827 6.16229 18.8147 6.24348 18.9314C6.32467 19.0481 6.46168 19.0988 6.52765 19.0481C6.60884 18.9821 6.60884 18.8502 6.52765 18.7335C6.45661 18.6168 6.32467 18.566 6.24348 18.632Z" fill="#625F5F" />
-                                        </svg>
-                                    </span>
-                                    <Link href="https://github.com/keloriane">
-                                        Github
-                                    </Link>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="flex gap-[30px]">
-                        <div className="flex flex-col min-w-[255px] ">
-                            <span className="text-[30px] font-bold block">Location</span>
-                            <ul className="flex flex-col gap-[24px] mt-[10px]">
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="19" height="26" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8.68716 24.6798C1.72288 14.5837 0.430176 13.5475 0.430176 9.83704C0.430176 4.75448 4.55038 0.634277 9.63294 0.634277C14.7155 0.634277 18.8357 4.75448 18.8357 9.83704C18.8357 13.5475 17.543 14.5837 10.5787 24.6798C10.1217 25.34 9.14414 25.34 8.68716 24.6798ZM9.63294 13.6715C11.7507 13.6715 13.4674 11.9548 13.4674 9.83704C13.4674 7.7193 11.7507 6.00255 9.63294 6.00255C7.5152 6.00255 5.79845 7.7193 5.79845 9.83704C5.79845 11.9548 7.5152 13.6715 9.63294 13.6715Z" fill="#625F5F" />
-                                        </svg>
-                                    </span>
-                                    <p>
-                                        Brussels Belgium 12:38 PM
-                                    </p>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div className="flex flex-col gap-20px">
-                            <span className="text-[30px] font-bold block">Download</span>
-                            <ul className="flex flex-col gap-[24px] mt-[10px]">
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.2508 6.91999V0.401367H1.26517C0.601126 0.401367 0.0668945 0.914229 0.0668945 1.55171V23.7917C0.0668945 24.4292 0.601126 24.9421 1.26517 24.9421H18.041C18.7051 24.9421 19.2393 24.4292 19.2393 23.7917V8.07034H12.4491C11.79 8.07034 11.2508 7.55268 11.2508 6.91999ZM15.0678 17.0507L10.2537 21.6377C9.92172 21.9545 9.38549 21.9545 9.05347 21.6377L4.23939 17.0507C3.73262 16.568 4.08811 15.7393 4.80108 15.7393H8.0554V11.9048C8.0554 11.4811 8.41289 11.1379 8.85425 11.1379H10.452C10.8933 11.1379 11.2508 11.4811 11.2508 11.9048V15.7393H14.5051C15.2181 15.7393 15.5736 16.568 15.0678 17.0507ZM18.8898 5.43413L14.0019 0.736885C13.7772 0.521195 13.4726 0.401367 13.1531 0.401367H12.8485V6.53654H19.2393V6.24416C19.2393 5.9422 19.1145 5.64982 18.8898 5.43413Z" fill="#625F5F" />
-                                        </svg>
-
-
-                                    </span>
-                                    <Link href="https://www.linkedin.com/in/kevin-flabat-420a74ba/" >
-                                        Download resume
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="flex gap-[30px]">
-                        <div className="flex flex-col min-w-[255px] ">
-                            <span className="text-[30px] font-bold block">Availability</span>
-                            <ul className="flex flex-col gap-[24px] mt-[10px]">
-                                <li className="flex items-center gap-[20px]">
-                                    <span>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="5.88366" cy="6.33484" r="5.45349" fill="#91FF3A" />
-                                        </svg>
-
-                                    </span>
-                                    <p>
-                                        Available
-                                    </p>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </Col>
-            </Container>
-        </section>
+                    </Col>
+                </Container>
+    
+                <Container className="mt-[75px]">
+                    <Col
+                        colStart={[2, 2, 2, 2]} colEnd={[25, 25, 25, 14]} className="flex items-center  "
+                    >
+                        <form className="flex flex-col gap-50px" onSubmit={handleSubmit}>
+                            <div className="grid grid-cols-2 w-full gap-[68px] mt-[40px]">
+                                <input
+                                    type="text"
+                                    placeholder="Firstname"
+                                    className=""
+                                    name="firstname"
+                                    value={formData.firstname}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Lastname"
+                                    className=""
+                                    name="lastname"
+                                    value={formData.lastname}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="grid grid-cols-2 w-full gap-[68px] mt-[40px]">
+                                <input
+                                    type="email"
+                                    placeholder="mail"
+                                    className=""
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="tel"
+                                    placeholder="Phone number"
+                                    className=""
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="mt-[40px]">
+                                <textarea
+                                    placeholder="Message"
+                                    name="message"
+                                    id=""
+                                    cols={100}
+                                    rows={10}
+                                    className=""
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <button type="submit">Send</button>
+                        </form>
+    
+                    </Col>
+                    
+                </Container>
+            </section>
+            
+        </footer>
     );
 }
 

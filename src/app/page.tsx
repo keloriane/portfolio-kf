@@ -48,15 +48,17 @@ export default function Home() {
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="">
 
       <Cursor />
+      <div className="bg-white">
+
       <Nav />
       <Hero className={satoshi.className} />
       <Projects className={clashDisplay.className} />
       <Services clash={clashDisplay.className} satoshi={satoshi.className} />
       <About className={satoshi.className} />
-      //FUN
+      </div>
       <Contact className={satoshi.className} />
     </main>
   );

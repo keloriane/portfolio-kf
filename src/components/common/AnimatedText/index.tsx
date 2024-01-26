@@ -8,7 +8,7 @@ interface AnimatedTextProps {
 	text: string;
 	splitBy: 'letter' | 'word' | 'phrase';
 	as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
-	gap: string;
+	gap?: string;
 	duration: number;
 	className?: string;
 	highlightWords?: string[]; // Add this prop to highlight certain words
@@ -73,7 +73,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, dur
 			display: 'flex',
 			flexWrap: 'wrap',
 			gap: gap,
-		}} className={twMerge(`gap-[${gap}]`, className)}>
+		}} className={twMerge(`gap-[${gap}] leading-none`, className)}>
 			{splitText.map((str, index) => createElement(str, index))}
 		</div>
 	);
