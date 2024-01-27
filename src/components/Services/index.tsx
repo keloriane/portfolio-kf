@@ -78,9 +78,9 @@ const Services = ({ satoshi, clash }: { satoshi: string, clash: string }) => {
         .fromTo(
           numberRefs[index].current,
           { color: "#313131", duration: 0.2, },
-          { color: "white", },-0.12
+          { color: "white", },.2
           )
-          .fromTo(titleRefs[index].current, { duration: 0.2, color: "#313131" }, { opacity: 1, color: "white", ease:"cubic-bezier(.215,.61,.355,1)" }, 0.2)
+          .fromTo(titleRefs[index].current, { duration: 0.2, color: "#313131" }, { opacity: 1, color: "white", ease:"cubic-bezier(.215,.61,.355,1)" }, .2)
           .fromTo([subtitleRefs[index].current?.childNodes], { opacity:0, duration: 0.05, y:20, color: "#313131" }, { opacity: 1, stagger: 0.1, y:0,  color: "white", ease:"cubic-bezier(.215,.61,.355,1)" },-.01)
           .fromTo(techs[index].current, { duration: 0.2, opacity: 0, y: 10 }, { opacity: 1, y: -60, }, 0.3)
 
@@ -119,10 +119,10 @@ const Services = ({ satoshi, clash }: { satoshi: string, clash: string }) => {
         <Col colStart={2} colEnd={5}>
         <Title title="Services" />
         </Col>
-        <Col colStart={[1, 1, 2]} colEnd={[27, 27,26]} className='mt-[9rem]'>
+        <Col colStart={[1, 1, 1]} colEnd={[27, 27,27]} className='mt-[9rem]'>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-[800px]">
             {services.map((service, index) => (
-              <div key={index} className="border-r-2 border-[#313131] p-7 relative overflow-hidden" ref={containerBoxRefs[index]}>
+              <div key={index} className="p-7 relative overflow-hidden" ref={containerBoxRefs[index]}>
                 <div className="flex flex-col items-evenly  justify-between h-full">
                   <div className="flex flex-col text-[#313131] ">
                     <div className="relative z-10 flex items-center">

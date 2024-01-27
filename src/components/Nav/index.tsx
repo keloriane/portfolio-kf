@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import gsap from 'gsap'
+import { Contact } from '@/components/Contact';
 
 
 
@@ -17,10 +18,11 @@ const Nav: React.FC = () => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const navigationHeight = navBar.current?.offsetHeight;
-
+      
       if (scrollTop > lastScrollTop) {
         gsap.to(navBar.current, { top: "-90px", duration: 0.5 });
       } else {
+        console.log(navBar.current)
         gsap.to(navBar.current, { top: "0px", duration: 0.5 });
       }
 
@@ -39,8 +41,39 @@ const Nav: React.FC = () => {
   }, [elements[0] , elements[1]]);
 
   return (
-    <header ref={navBar} className="fixed z-10 top-0 w-full h-[90px] items-center bg-[#212121]">
-
+    <header ref={navBar} className="sticky z-10 top-0 w-full h-[90px] flex justify-between items-center bg-[white]">
+        <div className="logo">
+            <Link href="/">
+                    Kevin FLabat
+            </Link>
+        </div>
+        <ul className="flex gap-5 text-md font-bold">
+          <li>
+            <Link href={"#"}>
+                Home
+            </Link>
+          </li>
+          <li>
+            <Link href={"#"}>
+                Services
+            </Link>
+          </li>
+          <li>
+            <Link href={"#"}>
+                Projects
+            </Link>
+          </li>
+          <li>
+            <Link href={"#"}>
+                About
+            </Link>
+          </li>
+          <li>
+            <Link href={"#"}>
+                Contact
+            </Link>
+          </li>
+        </ul>
     </header>
   );
 };

@@ -31,5 +31,13 @@ export const services = [
 
   
     },
+    {
+      title:"SEO",
+      description:"Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
+      images: [ nextjsimage , wordpressimage , reactimage , vuejsimage , angularjsimage],
+      caption:ux
+
+  
+    }
   ]
   
