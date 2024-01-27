@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import gsap from 'gsap'
-import { Contact } from '@/components/Contact';
+
 
 
 
