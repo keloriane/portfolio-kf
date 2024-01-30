@@ -48,9 +48,6 @@ const Projects: React.FC<ProjectsProps> = ({ className, onImageClick }) => {
                       </svg>
                     </span>
                     <Link href="#" className="relative z-10">{project.title}</Link>
-                    <div id={`image-${index}`} className="absolute right-0 opacity-0 -z-index-1 pointer-events-none">
-                      <Image src={projects[index].image} alt={projects[index].title} height={500} width={500}  />
-                    </div>
                   </li>
                 ))}
               </ul>
