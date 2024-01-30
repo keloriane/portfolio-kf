@@ -67,7 +67,7 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
       }}
     >
         {
-            backgroundImage ? (<Image src={backgroundImage} alt="" objectFit="cover" className="w-full h-full" />) : ("")
+            backgroundImage ? (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}} placeholder="blur" />) : ("")
         }
 
     </div>
