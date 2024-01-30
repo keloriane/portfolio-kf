@@ -1,24 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-
+import Image, { StaticImageData } from "next/image";
 type CursorProps = {
-  backgroundImage?: string | null;
+  backgroundImage?: StaticImageData | null;
 };
 
-const Cursor: React.FC<CursorProps> = ({ backgroundImage = null }) => {
-  const cursor = useRef<HTMLDivElement | null>(null);
+const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
+    const cursor = useRef<HTMLDivElement | null>(null);
+    
+  useLayoutEffect(() => {
 
-  useEffect(() => {
-    const setCursorSize = (width: number, height: number) => {
-      gsap.to(cursor.current, {
-        width,
-        height,
-        duration: 1,
-        ease: "cubic-bezier(0.76, 0, 0.024, 1)",
-      });
-    };
-
+    document.addEventListener("pageLoaded", () => {
+        gsap.set(cursor.current, {
+            width: 32,
+            height: 32,
+            duration: 1,
+            ease: "cubic-bezier(0.76, 0, 0.024, 1)",
+          });
+    });
     const handleMouseMove = (e: MouseEvent) => {
+
       if (cursor.current) {
         gsap.to(cursor.current, {
           x: e.clientX,
@@ -27,9 +28,21 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage = null }) => {
           ease: "cubic-bezier(0.76, 0, 0.024, 1)",
         });
 
-        const newSize = backgroundImage !== null ? [320, 320] : [32, 32];
-        // @ts-ignore: Unreachable code error
-        setCursorSize(...newSize)
+        if (backgroundImage !== null) {
+          gsap.to(cursor.current, {
+            width: 320,
+            height: 320,
+            duration: 1,
+            ease: "cubic-bezier(0.76, 0, 0.024, 1)",
+          });
+        } else if (backgroundImage === null){
+          gsap.to(cursor.current, {
+            width: 32,
+            height: 32,
+            duration: 1,
+            ease: "cubic-bezier(0.76, 0, 0.024, 1)",
+          });
+        }
       }
     };
 
@@ -43,27 +56,20 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage = null }) => {
     };
   }, [backgroundImage]);
 
-  useEffect(() => {
-    if (cursor.current && backgroundImage !== null) {
-      gsap.to(cursor.current, {
-        duration: 1,
-        scaleY: 1,
-        scaleX: 1,
-        ease: "cubic-bezier(0.76, 0, 0.024, 1)",
-      });
-    }
-  }, [backgroundImage]);
-
-
   return (
-    <div ref={cursor} className={`c-cursor ${backgroundImage ? "cursor-hovered" : ""}`} style={{
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
+    <div
+      ref={cursor}
+      className={`c-cursor ${backgroundImage ? "cursor-hovered" : ""}`}
+      style={{
         mixBlendMode: backgroundImage ? "normal" : "difference",
         width: backgroundImage ? "320px" : "32px",
         height: backgroundImage ? "320px" : "32px",
-    }}>
-      <div className="c-cursor__inner"></div>
-      <div className="c-cursor__follower"></div>
+      }}
+    >
+        {
+            backgroundImage ? (<Image src={backgroundImage} alt="" objectFit="cover" />) : ("")
+        }
+
     </div>
   );
 };

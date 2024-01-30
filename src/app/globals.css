@@ -155,6 +155,7 @@ textarea {
   z-index: 1;
   pointer-events: none;
   background-size: cover;
+  overflow: hidden;
 }
 
 .nav-item .block:last-child {

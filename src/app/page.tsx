@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Projects from '@/components/Projects';
 import Experiences from '@/components/Experiences';
 import React from 'react';
+import { StaticImageData } from 'next/image';
 
 
 // Font files can be colocated inside of `pages`
@@ -49,14 +50,15 @@ const clashDisplay = localFont({
 
 export default function Home() {
 
-  const [imageSrc , setImageSrc] = React.useState<string>("");
-  const [imageBg , setImageBg] = React.useState<boolean>(false);
+  const [imageSrc , setImageSrc] = React.useState<StaticImageData | null >(null);
 
   const handleImageClick = (imageData:any) => {
-    // Do something with the image data, e.g., update state, make an API call, etc.
-    setImageSrc(imageData && imageData.src);
+    if(imageData === null) {
+      setImageSrc(null)
+    } else {
+      setImageSrc(imageData && imageData);
 
-    setImageBg(true);
+    }
   };
 
 
