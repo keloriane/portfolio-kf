@@ -41,7 +41,7 @@ html div {
 
 .hobby-title {
   -webkit-text-stroke: #313131;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 1px;
 }
 .service-subtitle {
   font-size: calc((18vw - 48px) * 0.1695);
@@ -141,6 +141,8 @@ textarea {
   mask-repeat: no-repeat;
 }
 
+
+
 .c-cursor {
   background-color: white;
   height: 32px;
@@ -152,6 +154,7 @@ textarea {
   mix-blend-mode: difference;
   z-index: 1;
   pointer-events: none;
+  background-size: cover;
 }
 
 .nav-item .block:last-child {

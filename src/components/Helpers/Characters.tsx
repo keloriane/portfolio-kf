@@ -9,7 +9,7 @@ import { twMerge } from "tailwind-merge";
 
 
 
-const Characters = ({  className , phrase }: { className: string , phrase:string }) => {
+const Characters = ({  className , phrase, stroke }: { className: string , phrase:string , stroke?:string }) => {
   let refs = useRef<(HTMLSpanElement | null)[]>([]);
   const body = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
@@ -29,7 +29,7 @@ const Characters = ({  className , phrase }: { className: string , phrase:string
     let letters: React.ReactNode[] = [];
     word.split("").forEach((letter, i) => {
       letters.push(
-        <span className="opacity-[0.2]" key={letter + "_" + i} ref={(el) => refs.current.push(el)}>
+        <span className={twMerge("text-[rgba(33,33,33,0.2)]" , stroke ? stroke : "")} key={letter + "_" + i} ref={(el) => refs.current.push(el)}>
           {letter}
         </span>
       );
@@ -47,7 +47,7 @@ const Characters = ({  className , phrase }: { className: string , phrase:string
         end: `+=${window.innerHeight / 1.5}`,
        
       },
-      opacity: 1,
+      color: "rgba(33, 33, 33, 1)",
       ease: "none",
       stagger: 0.1,
     });

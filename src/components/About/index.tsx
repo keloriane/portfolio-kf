@@ -27,16 +27,10 @@ const About:React.FC<AboutProps> = ({satoshi , clash}) => {
             <Container>
                 <Col colStart={[2]} colEnd={[20]} >
             <Title title='About Me' />
-                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
-                        Guitar Player
-                    </h2>
-                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
-                        Tennis Player
-                    </h2>
-                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
-                        Gamer
-                    </h2>
-                    
+            <Characters phrase="Guitar Player" stroke='hobby-title' className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' , clash)} />
+            <Characters phrase="Tennis Player" stroke='hobby-title' className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' , clash)} />
+            <Characters phrase="Gamer" stroke='hobby-title' className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' , clash)} />
+                  
                     </Col>
                 <Col colStart={[2]} colEnd={[20]} className='mt-[90px]' >
                     <Characters

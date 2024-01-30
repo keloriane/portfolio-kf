@@ -1,3 +1,4 @@
+'use client'
 import Hero from '@/components/Hero';
 import Nav from '@/components/Nav';
 import About from "@/components/About";
@@ -7,6 +8,8 @@ import Cursor from '@/components/common/Cursor';
 import Contact from "@/components/Contact";
 import Projects from '@/components/Projects';
 import Experiences from '@/components/Experiences';
+import React from 'react';
+
 
 // Font files can be colocated inside of `pages`
 const satoshi = localFont({
@@ -46,17 +49,27 @@ const clashDisplay = localFont({
 
 export default function Home() {
 
+  const [imageSrc , setImageSrc] = React.useState<string>("");
+  const [imageBg , setImageBg] = React.useState<boolean>(false);
+
+  const handleImageClick = (imageData:any) => {
+    // Do something with the image data, e.g., update state, make an API call, etc.
+    setImageSrc(imageData && imageData.src);
+
+    setImageBg(true);
+  };
 
 
   return (
     <main className="">
 
-      <Cursor />
+      
+      <Cursor backgroundImage={imageSrc} />
       <div className="bg-white">
 
       <Nav />
       <Hero className={satoshi.className} />
-      <Projects className={clashDisplay.className} />
+      <Projects className={clashDisplay.className} onImageClick={handleImageClick} />
       <Services clash={clashDisplay.className} satoshi={satoshi.className} />
       <About clash={clashDisplay.className} satoshi={satoshi.className} />
       <Experiences clash={clashDisplay.className} satoshi={satoshi.className} />
