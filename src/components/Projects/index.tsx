@@ -3,7 +3,8 @@ import { projects } from "./projects";
 import { twMerge } from "tailwind-merge";
 import Col from "../common/Col";
 import Container from "../common/Container";
-import Title from "../common/Title";
+import {Title} from "../common/Title";
+import Grid from "../common/Grid";
 
 
 const Projects = ({ className }: { className: string }) => {

@@ -9,9 +9,9 @@ export async function POST(request:Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     try {
         const body = await request.json();
-        console.log('data ======>' , body);
+      
         const { email, firstname, lastname, phonenumber, message } = body;
-        console.log(body)
+      
         const data = await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: 'kevin.flbt@gmail.com',

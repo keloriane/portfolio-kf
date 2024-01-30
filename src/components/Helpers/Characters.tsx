@@ -8,8 +8,8 @@ import { twMerge } from "tailwind-merge";
 
 
 
-const phrase = "Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.";
-const Characters = ({  className }: { className: string; }) => {
+
+const Characters = ({  className , phrase }: { className: string , phrase:string }) => {
   let refs = useRef<(HTMLSpanElement | null)[]>([]);
   const body = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLDivElement | null>(null);

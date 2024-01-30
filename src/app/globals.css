@@ -12,6 +12,9 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
+
 html h1,
 html h2,
 html h3,
@@ -26,6 +29,49 @@ html div {
 }
 
 
+.hero-title {
+  font-size: calc((50vw - 48px) * 0.1695);
+}
+
+.image-p {
+  height: calc((50vw - 48px) * 0.1695);
+}
+
+
+
+.hobby-title {
+  -webkit-text-stroke: #313131;
+  -webkit-text-stroke-width: 3px;
+}
+.service-subtitle {
+  font-size: calc((18vw - 48px) * 0.1695);
+  
+}
+.service-title {
+  font-size: calc((30vw - 48px) * 0.1695);
+
+}
+@media (max-width:1150px) {
+  .service-subtitle {
+    font-size: calc((25vw - 48px) * 0.1695);
+    
+  }
+  .servie-title {
+    font-size: calc((42vw - 48px) * 0.1695);
+  
+  }
+  
+}
+@media (max-width:500px) {
+  .service-subtitle {
+    font-size: calc((35vw - 48px) * 0.1695);
+    
+  }
+  .servie-title {
+    font-size: calc((42vw - 48px) * 0.1695);
+  
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   :root {

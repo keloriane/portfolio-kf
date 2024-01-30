@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Cursor from '@/components/common/Cursor';
 import Contact from "@/components/Contact";
 import Projects from '@/components/Projects';
+import Experiences from '@/components/Experiences';
 
 // Font files can be colocated inside of `pages`
 const satoshi = localFont({
@@ -57,7 +58,8 @@ export default function Home() {
       <Hero className={satoshi.className} />
       <Projects className={clashDisplay.className} />
       <Services clash={clashDisplay.className} satoshi={satoshi.className} />
-      <About className={satoshi.className} />
+      <About clash={clashDisplay.className} satoshi={satoshi.className} />
+      <Experiences clash={clashDisplay.className} satoshi={satoshi.className} />
       </div>
       <Contact className={satoshi.className} />
     </main>

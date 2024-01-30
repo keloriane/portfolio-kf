@@ -3,41 +3,37 @@ import wordpressimage from "@/assets/images/Vector-2.svg";
 import reactimage from "@/assets/images/Vector-3.svg";
 import vuejsimage from "@/assets/images/Vector-4.svg";
 import angularjsimage from "@/assets/images/Vector.svg";
-import frontend from "@/assets/images/front-endd.webp";
-import backend from "@/assets/images/front-end.webp";
-import ux from "@/assets/images/ux.webp";
+import typescript from '@/assets/images/typescript.svg';
+import docker from '@/assets/images/docker.svg';
+import postgresql from '@/assets/images/postgresql.svg';
+import nextjsImage from '@/assets/images/next.svg';
+import figma from '@/assets/images/figma.svg';
 
 
 export const services = [
-    {
-      title:"Frontend development",
-      description:"Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
-      images: [ nextjsimage , wordpressimage , reactimage , vuejsimage , angularjsimage],
-      caption: frontend
-  
-    },
-    {
-      title:"Backend development",
-      description:"Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
-      images: [ nextjsimage , wordpressimage , reactimage , vuejsimage , angularjsimage],
-      caption:backend
-  
-    },
-    {
-      title:"UX UI Design",
-      description:"Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
-      images: [ nextjsimage , wordpressimage , reactimage , vuejsimage , angularjsimage],
-      caption:ux
+  {
+    title: "Frontend Development",
+    description: "Each website we design is unique, meaning no templates and no recycled work. We want to make sure each client’s vision is. \n Each website we design is unique, meaning no templates and no recycled work. \n We want to make sure each client’s vision is",
+    images: [nextjsimage, wordpressimage, reactimage, vuejsimage, angularjsimage],
+    subtitle: ["Website", "Web App", "WebGl" , "Ecommerce", "CMS"],
 
-  
-    },
-    {
-      title:"SEO",
-      description:"Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
-      images: [ nextjsimage , wordpressimage , reactimage , vuejsimage , angularjsimage],
-      caption:ux
 
-  
-    }
-  ]
+  },
+  {
+    title: "Backend Development",
+    description: "Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
+    images: [typescript, docker, postgresql, nextjsImage],
+    subtitle: ["API Development", "Server Deployment", "Server Deployment", "Containerization"],
+
+
+  },
+  {
+    title: "UX UI Design",
+    description: "Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
+    images: [figma],
+    subtitle: ["Web Design", "Prototyping", "Design Systems", "Design Systems"],
+
+
+  },
+]
   

@@ -4,10 +4,18 @@ import Characters from '../Helpers/Characters';
 import useMousePosition from '../utils/useMousePosition';
 import Container from '@/components/common/Container';
 import Col from '@/components/common/Col';
+import ImageParallax from '../common/ImageParallax';
+import Frontend from '@/assets/images/front-end.webp';
+import { twMerge } from 'tailwind-merge';
+import { Title } from '../common/Title';
 
 
+type AboutProps = {
+    satoshi:string;
+    clash:string;
+}
 
-const About = ({ className }: { className: string }) => {
+const About:React.FC<AboutProps> = ({satoshi , clash}) => {
 
     const { x, y } = useMousePosition();
 
@@ -17,12 +25,27 @@ const About = ({ className }: { className: string }) => {
 
         <section className='w-screen h-screen flex items-center'>
             <Container>
-                <Col colStart={[4]} colEnd={[20]} >
+                <Col colStart={[2]} colEnd={[20]} >
+            <Title title='About Me' />
+                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
+                        Guitar Player
+                    </h2>
+                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
+                        Tennis Player
+                    </h2>
+                    <h2 className={twMerge('font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase' ," hobby-title")}> 
+                        Gamer
+                    </h2>
+                    
+                    </Col>
+                <Col colStart={[2]} colEnd={[20]} className='mt-[90px]' >
                     <Characters
-                        className="sm:text-[16px] md:text-[35px] lg:text-[40px] xl:text-l text-center font-bold"
+                        phrase="Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille."
+                        className="sm:text-[16px] md:text-[35px] lg:text-[40px] xl:text-l text-center font-normal leading-[1.5]"
                     />
                 </Col>
             </Container>
+              
         </section>
 
     );

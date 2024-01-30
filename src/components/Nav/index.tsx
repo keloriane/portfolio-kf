@@ -22,7 +22,7 @@ const Nav: React.FC = () => {
       if (scrollTop > lastScrollTop) {
         gsap.to(navBar.current, { top: "-90px", duration: 0.5 });
       } else {
-        console.log(navBar.current)
+    
         gsap.to(navBar.current, { top: "0px", duration: 0.5 });
       }
 

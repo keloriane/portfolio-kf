@@ -18,11 +18,8 @@ const Hero = ({ className }: { className: string }) => {
             <div className='flex flex-col items-center justify-center'>
                 <div className="flex flex-col items-center xl:flex-row lg:flex-col md:flex-col sm:flex-col md:gap-[30px] gap-[30px] lg:gap-[87px]">
                     <div className="flex items-start flex-col">
-                        <AnimatedText text="Creative Developer" gap={'25px'} splitBy="word"  duration={.7} as="h2" className="text-[37px] md:text-[60px] xl:text-lg lg:text-lg capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start " />
-                        <AnimatedText text="Based in Brussels" gap={'25px'} splitBy="word" duration={.7} as="h2" className="text-[37px] md:text-[60px] xl:text-lg lg:text-lg capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start" />
-                    </div>
-                    <div>
-                        <Image src={profil} alt="profile" className='lg:w-[367px] md:w-[275px] w-[135px]' />
+                        <AnimatedText text="Creative Developer" gap={'25px'} splitBy="word"  duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start ", "hero-title")} />
+                        <AnimatedText text="Based in Brussels" gap={'25px'} splitBy="word" duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start", "hero-title")} />
                     </div>
                 </div>
                 
