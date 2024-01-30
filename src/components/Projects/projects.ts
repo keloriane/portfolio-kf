@@ -11,7 +11,7 @@ export const projects = [
     },
     {
         title: "Cyrielle psychologue",
-        image: coPic
+        image: frontends
         
     },
     {
@@ -24,11 +24,11 @@ export const projects = [
     },
     {
         title: "Buddy Belgium",
-        image: coPic
+        image: frontend
     },
     {
         title: "Project 1",
-        image: coPic
+        image: frontends
     },
     
 ]
