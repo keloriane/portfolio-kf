@@ -10,6 +10,7 @@ import Projects from '@/components/Projects';
 import Experiences from '@/components/Experiences';
 import React from 'react';
 import { StaticImageData } from 'next/image';
+import Footer from '@/components/Footer';
 
 
 // Font files can be colocated inside of `pages`
@@ -77,6 +78,7 @@ export default function Home() {
       <Experiences clash={clashDisplay.className} satoshi={satoshi.className} />
       </div>
       <Contact className={satoshi.className} />
+      <Footer />
     </main>
   );
 }

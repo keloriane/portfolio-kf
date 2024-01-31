@@ -13,7 +13,7 @@ import figma from '@/assets/images/figma.svg';
 export const services = [
   {
     title: "Frontend Development",
-    description: "Each website we design is unique, meaning no templates and no recycled work. We want to make sure each client’s vision is. \n Each website we design is unique, meaning no templates and no recycled work. \n We want to make sure each client’s vision is",
+    description: "Je suis un développeur spécialisé en React et Typescript. Passionné par le code, j'ai également un penchant pour le design, fusionnant esthétique et fonctionnalité dans chaque projet sur lequel je travaille.",
     images: [nextjsimage, wordpressimage, reactimage, vuejsimage, angularjsimage],
     subtitle: ["Website", "Web App", "WebGl" , "Ecommerce", "CMS"],
 

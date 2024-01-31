@@ -38,6 +38,22 @@ const config: Config = {
       colors: {
         accent: "#BE2525"
       },
+      keyframes: {
+        gradientRotation: {
+          "0%": {
+            "background-position": "0% 50%",
+          },
+          "50%": {
+            "background-position": "100% 50%",
+          },
+          "100%": {
+            "background-position": "0% 50%",
+          },
+        },
+      },
+      animation: {
+        "gradientRotation": "gradientRotation 3s ease-in-out infinite",
+      },
       gridColumnStart: extraColumns,
       gridColumnEnd: extraColumns,
       gridTemplateColumns: {

@@ -22,7 +22,7 @@ html h4,
 html h5,
 html h6,
 html div {
-  will-change: transform;
+
   -webkit-font-smoothing: antialiased !important;
   text-rendering: geometricPrecision !important;
 
@@ -51,6 +51,13 @@ html div {
   font-size: calc((30vw - 48px) * 0.1695);
 
 }
+
+.arrow-service {
+  transition: all .2s ease-in;
+}
+
+
+
 @media (max-width:1150px) {
   .service-subtitle {
     font-size: calc((25vw - 48px) * 0.1695);
@@ -112,21 +119,16 @@ body {
   fill: #BE2525;
 }
 
-input {
+input , textarea {
   color: white;
   font-size: 18px;
   font-weight: 500;
   background:transparent;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #212121;
+  width: 100%;
 }
 
-textarea {
-     color: white;
-    font-size: 18px;
-    font-weight: 500;
-    background: transparent;
-    border-bottom: 1px solid white;
-}
+
 
 
 .nav-item:hover .letter,
@@ -157,6 +159,33 @@ textarea {
   background-size: cover;
   overflow: hidden;
 }
+
+
+
+.gradient-animation {
+  animation: animatedgradient 3s ease alternate infinite;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+
+
 
 .nav-item .block:last-child {
   color: #BE2525;

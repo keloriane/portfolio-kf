@@ -12,9 +12,11 @@ interface AnimatedTextProps {
 	duration: number;
 	className?: string;
 	highlightWords?: string[]; // Add this prop to highlight certain words
-	highlightColor?: string; // Add this prop to set the highlight color
+	highlightColor?: string;
+	reactRef?: React.RefObject<HTMLDivElement>;
+	 // Add this prop to set the highlight color
 }
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, duration, className, highlightWords = [], highlightColor = 'red', }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, reactRef, splitBy, as, gap, duration, className, highlightWords = [], highlightColor = 'red', }) => {
 	const [ref, inView] = useInView({
 		triggerOnce: true,
 		threshold: 0.1,
@@ -69,12 +71,15 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, splitBy, as, gap, dur
 	}
 
 	return (
-		<div ref={ref} style={{
-			display: 'flex',
-			flexWrap: 'wrap',
-			gap: gap,
-		}} className={twMerge(`gap-[${gap}] leading-none`, className)}>
-			{splitText.map((str, index) => createElement(str, index))}
+		<div ref={reactRef}>
+			<div ref={ref} style={{
+				display: 'flex',
+				flexWrap: 'wrap',
+				gap: gap,
+			}} className={twMerge(`gap-[${gap}] leading-none`, className)}>
+				{splitText.map((str, index) => createElement(str, index))}
+			</div>
+
 		</div>
 	);
 };

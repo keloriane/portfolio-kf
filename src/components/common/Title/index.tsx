@@ -1,6 +1,8 @@
-export const Title = ({ title }: { title: string }) => {
+import { twMerge } from "tailwind-merge";
+
+export const Title = ({ title , className }: { title: string , className?:string }) => {
     return (
-        <h2 className="text-[1.8rem] text-accent underline">{title}</h2>
+        <h2 className={twMerge("text-[1.8rem] text-accent underline" , className)}>{title}</h2>
     );
 }
 
