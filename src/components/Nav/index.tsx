@@ -41,13 +41,13 @@ const Nav: React.FC = () => {
   }, [elements[0] , elements[1]]);
 
   return (
-    <header ref={navBar} className="sticky z-10 top-0 w-full h-[90px] flex justify-between items-center bg-[white]">
+    <header ref={navBar} className="sticky z-10 top-0 w-full h-[90px] flex justify-between items-center px-10 bg-[white]">
         <div className="logo">
-            <Link href="/">
+            <Link href="/" className="font-bold text-[30px]">
                     Kevin FLabat
             </Link>
         </div>
-        <ul className="flex gap-5 text-md font-bold">
+        <ul className=" gap-5 text-md font-bold hidden md:flex lg:flex">
           <li>
             <Link href={"#"}>
                 Home

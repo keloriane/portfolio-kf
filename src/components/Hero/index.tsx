@@ -10,6 +10,7 @@ import Github from '@/assets/images/Github.svg';
 import Linkedin from '@/assets/images/Linkedin.svg';
 import mail from '@/assets/images/mail.svg';
 import Link from 'next/link'
+import profile from '@/assets/images/profil.png';
 
 const Hero = ({ className }: { className: string }) => {
 
@@ -17,13 +18,16 @@ const Hero = ({ className }: { className: string }) => {
         <header className={twMerge("flex h-screen w-screen items-center justify-center flex-wrap ", className)}>
             <div className='flex flex-col items-center justify-center'>
                 <div className="flex flex-col items-center xl:flex-row lg:flex-col md:flex-col sm:flex-col md:gap-[30px] gap-[30px] lg:gap-[87px]">
-                    <div className="flex items-start flex-col">
-                        <AnimatedText text="Creative Developer" gap={'25px'} splitBy="word"  duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start ", "hero-title")} />
-                        <AnimatedText text="Based in Brussels" gap={'25px'} splitBy="word" duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start", "hero-title")} />
+                    <div className="flex md:items-center items-center lg:items-start flex-col ">
+                        <AnimatedText text="Creative Developer"  splitBy="word"  duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] md:justify-center justify-center lg:justify-start ", "hero-title")} />
+                        <AnimatedText text="Based in Brussels" splitBy="word" duration={.7} as="h2" className={twMerge("capitalize font-bold sm:gap-[2px] md:gap-[10px] xl:gap-[10px] md:justify-center justify-center lg:justify-start", "hero-title")} />
+                    </div>
+                    <div>
+                        <Image src={profile} alt='profile' className="lg:w-[300px] md:w-[200px] w-[200px] " />
                     </div>
                 </div>
                 
-                <div className="flex justify-start flex-row gap-[50px] w-full">
+                <div className="flex md:flex lg:justify-center md:justify-center xl:justify-start justify-center flex-row gap-[50px] w-full mt-10">
                     <Link href="https://github.com/keloriane">
                         <Image src={Github} alt='github' className="lg:w-[40px] md:w-[30px] w-[30px]" />
                     </Link>

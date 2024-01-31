@@ -9,7 +9,6 @@ export async function POST(request:Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     try {
         const body = await request.json();
-      
         const { email, firstname, lastname, phonenumber, message } = body;
       
         const data = await resend.emails.send({
@@ -19,7 +18,6 @@ export async function POST(request:Request) {
             react: EmailTemplate({email , firstname, lastname, phonenumber, message}),
             html: `<p>Message from ${firstname} ${lastname} : ${message} <br/> form mail: ${email} </p>`
         });
-
         
         return NextResponse.json( data );
     } catch (error) {

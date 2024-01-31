@@ -67,11 +67,14 @@ const Contact = ({ className }: { className: string }) => {
                             <AnimatedText text="Want to work together ?" splitBy="word" gap="10px" duration={.3} as="h2" className="lg:text-[65px] md:text-[40px] sm:text-[21px]" />
                         </div>
                     </Col>
-                     <Col colStart={[2, 2, 16, 16]} colEnd={[26, 26, 26, 26]}>
+                     <Col colStart={[2]} colEnd={[12]}>
                         <div className="mt-[60px]">
+                            <AnimatedText text="I am always looking for freelance  " splitBy="phrase" gap="10px" duration={.3} as="h3" className="lg:text-[40px] md:text-[30px] sm:text-[14px]" />
+                            <AnimatedText text="opportunities in any company" splitBy="phrase" gap="10px" duration={.3} as="h3" className="lg:text-[40px] md:text-[30px] sm:text-[14px]" />
+                            <AnimatedText text="agency or startup" splitBy="phrase" gap="10px" duration={.3} as="h3" className="lg:text-[40px] md:text-[30px] sm:text-[14px]" />
                             <p
                                 className="lg:text-[40px] md:text-[30px] sm:text-[14px] "
-                            > I am always looking for freelance opportunities in any company agency or startup</p>
+                            > </p>
                         </div>
                     </Col>
                 </Container>
