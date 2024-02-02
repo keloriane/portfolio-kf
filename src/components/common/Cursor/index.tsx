@@ -1,3 +1,4 @@
+'use client'
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
@@ -67,7 +68,7 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
       }}
     >
         {
-            backgroundImage ? (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}} placeholder="blur" />) : ("")
+            backgroundImage && (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}}  />) 
         }
 
     </div>

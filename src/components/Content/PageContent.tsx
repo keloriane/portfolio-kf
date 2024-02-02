@@ -1,4 +1,5 @@
 
+'use client'
 import React from "react";
 import Cursor from "../common/Cursor";
 import Nav from "@/components/Nav";
@@ -11,6 +12,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { StaticImageData } from 'next/image';
 import localFont from "next/font/local";
+import {  ServicesPropsData } from "@/interfaces/service.type";
+import { ProjectsPropsData } from "@/interfaces/projects.type";
 
 
 
@@ -50,7 +53,13 @@ const satoshi = localFont({
       }
     ]
   })
-const PageContent: React.FC = () => {
+
+interface PageContentProps {
+    services: ServicesPropsData[];
+    projects: ProjectsPropsData[];
+}
+
+const PageContent: React.FC<PageContentProps> = ({services , projects}) => {
     const [imageSrc , setImageSrc] = React.useState<StaticImageData | null >(null);
 
     const handleImageClick = (imageData:any) => {
@@ -66,8 +75,8 @@ const PageContent: React.FC = () => {
             <Cursor backgroundImage={imageSrc} />
             <Nav />
             <Hero className={satoshi.className} />
-            <Projects className={clashDisplay.className} onImageClick={handleImageClick} />
-            <Services clash={clashDisplay.className} satoshi={satoshi.className} />
+            <Projects className={clashDisplay.className} onImageClick={handleImageClick } projects={projects} />
+            <Services clash={clashDisplay.className} satoshi={satoshi.className} services={services} />
             <About clash={clashDisplay.className} satoshi={satoshi.className} />
             <Experiences clash={clashDisplay.className} satoshi={satoshi.className} />
             <Contact className={satoshi.className} />

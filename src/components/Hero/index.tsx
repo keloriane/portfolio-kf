@@ -14,6 +14,7 @@ import profile from '@/assets/images/profil.png';
 
 const Hero = ({ className }: { className: string }) => {
 
+
     return (
         <header className={twMerge("flex h-screen w-screen items-center justify-center flex-wrap ", className)}>
             <div className='flex flex-col items-center justify-center'>
@@ -27,7 +28,7 @@ const Hero = ({ className }: { className: string }) => {
                     </div>
                 </div>
                 
-                <div className="flex md:flex lg:justify-center md:justify-center xl:justify-start justify-center flex-row gap-[50px] w-full mt-10">
+                <div className="flex md:flex lg:justify-center md:justify-center xl:justify-start justify-center flex-row gap-[50px] w-full mt-10 md:m-10 lg:mt-2">
                     <Link href="https://github.com/keloriane">
                         <Image src={Github} alt='github' className="lg:w-[40px] md:w-[30px] w-[30px]" />
                     </Link>

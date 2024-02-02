@@ -5,21 +5,26 @@ import React, { useEffect, useLayoutEffect } from 'react';
 import {ResponsiveTitle , Title} from "../common/Title";
 import Container from '../common/Container';
 import Col from '../common/Col';
-import { services } from './services';
 import { twMerge } from 'tailwind-merge';
 import Image from 'next/image';
 import Tag from './Tag';
 import gsap from 'gsap';
 import AnimatedText from '../common/AnimatedText';
+import {  groq } from 'next-sanity';
+import { client } from '../../../sanity/lib/client';
+import { ServicesPropsData } from '@/interfaces/service.type.js';
 
 type ServicesProps = {
   satoshi:string;
   clash:string;
+  services: ServicesPropsData[]
 }
 
 
 
-const Services:React.FC<ServicesProps> = ({satoshi , clash}) => {
+const Services:React.FC<ServicesProps> = ({satoshi , clash , services}) => {
+
+
 
   const [active , setActive] = React.useState<boolean>(true);
   const [hover , setHover] = React.useState<boolean[]>(services.map(() => false));
@@ -61,7 +66,6 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash}) => {
   };
   
   useLayoutEffect(() => {
-   
     console.log(techs[0]?.current?.childNodes)
     const tabTimeline = gsap.timeline({ paused: true });
     services.forEach((service, index) => {
@@ -137,7 +141,7 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash}) => {
                   <div className={twMerge('text-[20px] font-normal' , satoshi)}>
                       <div className="flex items-center flex-wrap gap-4 text-[22px]">
                         {
-                          service.subtitle.map((tag , i) => (
+                          service.tags.map((tag , i) => (
                             <Tag tagName={tag} key={i} />
                           ))
                         }
@@ -146,9 +150,9 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash}) => {
                     <div className={twMerge('text-[20px] font-normal' , satoshi)}>
                       <div className="flex items-center h-full gap-[10px]" ref={techs[index]}>
                         {
-                          service.images.map((image , i) => (
+                          service.icons.map((image , i) => (
                             <div className="w-[50%] h-[50%]  flex flex-wrap items-center" key={i} >
-                              <Image src={image} alt="tech" height={45} />
+                              <Image src={image.url} alt="tech" width={45} height={45} />
                             </div> 
                           ))
                         }
@@ -168,5 +172,4 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash}) => {
     </section>
    );
 }
- 
 export default Services;

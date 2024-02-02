@@ -1,14 +1,55 @@
-'use client'
+
 import PageContent from '@/components/Content/PageContent';
 import React from 'react';
+import { client } from '../../sanity/lib/client';
+import { groq } from 'next-sanity';
 
 
-// Font files can be colocated inside of `pages`
 
-export default function Home() {
+interface DevelopmentItem {
+  title: string;
+  description: string;
+  icons: any[][]; // You may want to replace 'any[][]' with the actual type for icons
+  tags: string[];
+}
+
+
+function getServices(){
+  return  client.fetch(groq`
+  *[_type == "services"]{
+    title,
+    description,
+    "icons":icons[]{
+      'url':asset->url
+    },
+    tags,
+  }`)
+
+}
+
+function getProjects(){
+  return client.fetch(groq`
+  *[_type == "projects"]{
+    title,
+    description,
+    "image":image.asset->url,
+  }`)
+}
+
+export default async function Home() {
+  const services = await getServices();
+  const projects = await getProjects();
+
+
+  console.log(projects)
+
+
   return (
     <main className="">
-      <PageContent />
+      <PageContent
+        projects={projects}
+        services={services}
+      />
     </main>
   );
-}
+  }

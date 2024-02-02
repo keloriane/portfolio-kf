@@ -1,23 +1,25 @@
 'use client'
 import React, { useState } from "react";
 import Link from "next/link";
-import { projects } from "./projects";
+
 import { twMerge } from "tailwind-merge";
 import Col from "../common/Col";
 import Container from "../common/Container";
 import { Title } from "../common/Title";
-import Image from "next/image";
-import gsap from 'gsap';
+import { ProjectsPropsData } from "@/interfaces/projects.type";
 
 type ProjectsProps = {
   className: string;
   onImageClick: (imageData: any) => void;
+  projects: ProjectsPropsData[];
 }
 
-const Projects: React.FC<ProjectsProps> = ({ className, onImageClick }) => {
+const Projects: React.FC<ProjectsProps> = ({ className, onImageClick , projects }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const handleImageClick = (index: number) => {
     // Call the callback function with the image data
+    console.log(projects[index])
+   
     onImageClick(projects[index].image);
   };
   const handleImageLeave = (index: number) => {
