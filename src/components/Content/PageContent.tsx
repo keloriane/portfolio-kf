@@ -15,10 +15,6 @@ import localFont from "next/font/local";
 import {  ServicesPropsData } from "@/interfaces/service.type";
 import { ProjectsPropsData } from "@/interfaces/projects.type";
 
-
-
-
-
 const satoshi = localFont({
     src: [
       {
@@ -53,7 +49,6 @@ const satoshi = localFont({
       }
     ]
   })
-
 interface PageContentProps {
     services: ServicesPropsData[];
     projects: ProjectsPropsData[];

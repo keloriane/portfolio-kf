@@ -18,7 +18,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, onImageClick , projects 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const handleImageClick = (index: number) => {
     // Call the callback function with the image data
-    console.log(projects[index])
+ 
    
     onImageClick(projects[index].image);
   };

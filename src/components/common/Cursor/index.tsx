@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
 type CursorProps = {
-  backgroundImage?: StaticImageData | null;
+  backgroundImage?: StaticImageData | string;
 };
 
 const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
@@ -68,7 +68,8 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
       }}
     >
         {
-            backgroundImage && (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}}  />) 
+            backgroundImage && backgroundImage ? (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}}  />) : (<img src={backgroundImage ? backgroundImage : ""} alt="" className="w-full h-full hidden" style={{objectFit:"cover"}}  />) 
+
         }
 
     </div>

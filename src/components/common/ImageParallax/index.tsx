@@ -19,7 +19,7 @@ const ImageParallax:React.FC<ImageParallaxProps> = ({src , alt , className}) => 
 
     const imageRef = React.useRef<HTMLDivElement>(null);
     useEffect(() => {
-        console.log(imageRef.current?.childNodes[0])
+       
     }, [imageRef])
 
 
