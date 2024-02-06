@@ -3,16 +3,16 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
 type CursorProps = {
-  backgroundImage?: string;
+  backgroundImage?: string | string[] | null;
 };
 
 const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
     const cursor = useRef<HTMLDivElement | null>(null);
-    
-  useLayoutEffect(() => {
 
+    
+    useLayoutEffect(() => {
+   
     document.addEventListener("pageLoaded", () => {
-      
         gsap.set(cursor.current, {
             width: 32,
             height: 32,
@@ -29,8 +29,8 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
           ease: "cubic-bezier(0.76, 0, 0.024, 1)",
         });
     
-        // Check if backgroundImage is provided and not an empty string
-        if (backgroundImage && backgroundImage.trim() !== "") {
+        
+        if (backgroundImage && backgroundImage !== null) {
           gsap.to(cursor.current, {
             width: 320,
             height: 320,
@@ -69,7 +69,7 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
       }}
     >
         {
-            backgroundImage && backgroundImage ? (<Image src={backgroundImage} alt="" fill className="w-full h-full" style={{objectFit:"cover"}}  />) : (<img src={backgroundImage ? backgroundImage : ""} alt="" className="w-full h-full hidden" style={{objectFit:"cover"}}  />) 
+            backgroundImage && backgroundImage ? (<img src={backgroundImage} alt="" className="w-full h-full" style={{objectFit:"cover"}}  />) : (<img src={backgroundImage ? backgroundImage : ""} alt="" className="w-full h-full hidden" style={{objectFit:"cover"}}  />) 
 
         }
 

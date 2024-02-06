@@ -11,17 +11,16 @@ type ProjectsProps = {
   className: string;
   onImageClick: (imageData: any) => void;
   projects: ProjectsPropsData[];
+  imageUrls: string[];
 }
 
-const Projects: React.FC<ProjectsProps> = ({ className, onImageClick, projects }) => {
+const Projects: React.FC<ProjectsProps> = ({ className, onImageClick, projects, imageUrls }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-
   const handleImageClick = (index: number) => {
-    window.addEventListener("pageLoaded", () => {
-      onImageClick(null);
-    })
-    onImageClick(projects[index].image);
+  
+    onImageClick(imageUrls[index]);
+    console.log("imageUrls ====> " ,imageUrls)
   };
 
   const handleImageLeave = () => {

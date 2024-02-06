@@ -56,31 +56,32 @@ interface PageContentProps {
 }
 
 const PageContent: React.FC<PageContentProps> = ({services , projects}) => {
-    const [imageSrc , setImageSrc] = React.useState<string >("");
+  const [imageSrc, setImageSrc] = React.useState<string[]>([]);
+  const [imageUrl, setImageUrl] = React.useState<string | null>(null);
 
     useEffect(() => {
       const preloadImages = () => {
+        const urls: string[] = [];
         projects.forEach(project => {
-          const img = new Image();
-          img.src = project.image; // Assuming the image URL is stored in project.image
+            const img = new Image();
+            img.src = project.image;
+            urls.push(img.src);
         });
+        setImageSrc(urls);
+  
       };
-      preloadImages();
+    preloadImages();
       }, []);
 
-    const handleImageClick = (imageData:any) => {
-      if(imageData === "") {
-        setImageSrc("")
-      } else {
-        setImageSrc(imageData && imageData);
-      }
+    const handleImageClick = (index:any) => {
+      setImageUrl( index)
     };
     return (
         <main>
-            <Cursor backgroundImage={imageSrc} />
+            <Cursor backgroundImage={imageUrl} />
             <Nav />
             <Hero className={satoshi.className} />
-            <Projects className={clashDisplay.className} onImageClick={handleImageClick } projects={projects} />
+            <Projects className={clashDisplay.className} onImageClick={handleImageClick } projects={projects} imageUrls={imageSrc} />
             <Services clash={clashDisplay.className} satoshi={satoshi.className} services={services} />
             <About clash={clashDisplay.className} satoshi={satoshi.className} />
             <Experiences clash={clashDisplay.className} satoshi={satoshi.className} />
