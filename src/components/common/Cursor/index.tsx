@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
 type CursorProps = {
-  backgroundImage?: StaticImageData | null;
+  backgroundImage?: string;
 };
 
 const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
@@ -21,7 +21,6 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
           });
     });
     const handleMouseMove = (e: MouseEvent) => {
-
       if (cursor.current) {
         gsap.to(cursor.current, {
           x: e.clientX,
@@ -29,15 +28,16 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
           duration: 1,
           ease: "cubic-bezier(0.76, 0, 0.024, 1)",
         });
-
-        if (backgroundImage !== null) {
+    
+        // Check if backgroundImage is provided and not an empty string
+        if (backgroundImage && backgroundImage.trim() !== "") {
           gsap.to(cursor.current, {
             width: 320,
             height: 320,
             duration: 1,
             ease: "cubic-bezier(0.76, 0, 0.024, 1)",
           });
-        } else if (backgroundImage === null){
+        } else {
           gsap.to(cursor.current, {
             width: 32,
             height: 32,

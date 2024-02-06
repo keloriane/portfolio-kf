@@ -1,5 +1,4 @@
-'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { twMerge } from "tailwind-merge";
@@ -8,28 +7,25 @@ import Container from "../common/Container";
 import { Title } from "../common/Title";
 import { ProjectsPropsData } from "@/interfaces/projects.type";
 
-
 type ProjectsProps = {
   className: string;
   onImageClick: (imageData: any) => void;
   projects: ProjectsPropsData[];
 }
 
-const Projects: React.FC<ProjectsProps> = ({ className, onImageClick , projects }) => {
+const Projects: React.FC<ProjectsProps> = ({ className, onImageClick, projects }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  React.useEffect(() => {
-    // Preload images when the component mounts
-    projects.forEach(project => {
-      const img = new Image();
-      img.src = project.image.url; // Assuming the image URL is stored in project.image
-    });
-  }, [projects]);
+
+
   const handleImageClick = (index: number) => {
-    // Call the callback function with the image data
+    window.addEventListener("pageLoaded", () => {
+      onImageClick(null);
+    })
     onImageClick(projects[index].image);
   };
-  const handleImageLeave = (index: number) => {
-    // Call the callback function with the image data
+
+  const handleImageLeave = () => {
+    // Call the callback function with null to hide the image
     onImageClick(null);
   };
 
@@ -45,10 +41,10 @@ const Projects: React.FC<ProjectsProps> = ({ className, onImageClick , projects 
               <ul>
                 {projects.map((project, index) => (
                   <li
-                  key={index}
-                  className={twMerge("sm:text-[20px] md:text-[40px] lg:text-[50px] xl:text-[60px] gap-[25px] w-full flex items-center project-item", hoveredIndex === index && "hovered")}
-                  onMouseEnter={() => handleImageClick(index)}
-                  onMouseLeave={() => handleImageLeave(index)}
+                    key={index}
+                    className={twMerge("sm:text-[20px] md:text-[40px] lg:text-[50px] xl:text-[60px] gap-[25px] w-full flex items-center project-item", hoveredIndex === index && "hovered")}
+                    onMouseEnter={() => handleImageClick(index)}
+                    onMouseLeave={handleImageLeave}
                   >
                     <span>
                       <svg width="52" height="50" viewBox="0 0 52 50" fill="none">

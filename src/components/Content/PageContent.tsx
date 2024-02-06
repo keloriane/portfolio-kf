@@ -14,6 +14,7 @@ import { StaticImageData } from 'next/image';
 import localFont from "next/font/local";
 import {  ServicesPropsData } from "@/interfaces/service.type";
 import { ProjectsPropsData } from "@/interfaces/projects.type";
+import { set } from "sanity";
 
 const satoshi = localFont({
     src: [
@@ -55,18 +56,23 @@ interface PageContentProps {
 }
 
 const PageContent: React.FC<PageContentProps> = ({services , projects}) => {
-    const [imageSrc , setImageSrc] = React.useState<StaticImageData | null >(null);
+    const [imageSrc , setImageSrc] = React.useState<string >("");
 
     useEffect(() => {
-        console.log(imageSrc)
+      const preloadImages = () => {
+        projects.forEach(project => {
+          const img = new Image();
+          img.src = project.image; // Assuming the image URL is stored in project.image
+        });
+      };
+      preloadImages();
       }, []);
 
     const handleImageClick = (imageData:any) => {
-      if(imageData === null) {
-        setImageSrc(null)
+      if(imageData === "") {
+        setImageSrc("")
       } else {
         setImageSrc(imageData && imageData);
-  
       }
     };
     return (

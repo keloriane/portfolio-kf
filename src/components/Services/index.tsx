@@ -26,7 +26,7 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash , services}) => {
 
 
 
-  const [active , setActive] = React.useState<boolean>(true);
+
   const [hover , setHover] = React.useState<boolean[]>(services.map(() => false));
   const boxRefs = services.map(() => React.useRef<HTMLDivElement | null>(null));
   const titleRefs = services.map(() => React.useRef<HTMLDivElement | null>(null));
