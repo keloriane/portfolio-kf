@@ -1,6 +1,6 @@
 
 'use client'
-import React from "react";
+import React, { useEffect } from "react";
 import Cursor from "../common/Cursor";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
@@ -56,6 +56,10 @@ interface PageContentProps {
 
 const PageContent: React.FC<PageContentProps> = ({services , projects}) => {
     const [imageSrc , setImageSrc] = React.useState<StaticImageData | null >(null);
+
+    useEffect(() => {
+        console.log(imageSrc)
+      }, []);
 
     const handleImageClick = (imageData:any) => {
       if(imageData === null) {

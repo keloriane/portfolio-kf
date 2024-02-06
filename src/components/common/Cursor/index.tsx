@@ -6,12 +6,13 @@ type CursorProps = {
   backgroundImage?: StaticImageData | null;
 };
 
-const Cursor: React.FC<CursorProps> = ({ backgroundImage=null}) => {
+const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
     const cursor = useRef<HTMLDivElement | null>(null);
     
   useLayoutEffect(() => {
 
     document.addEventListener("pageLoaded", () => {
+      
         gsap.set(cursor.current, {
             width: 32,
             height: 32,

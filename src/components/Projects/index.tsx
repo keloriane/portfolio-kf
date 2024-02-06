@@ -8,6 +8,7 @@ import Container from "../common/Container";
 import { Title } from "../common/Title";
 import { ProjectsPropsData } from "@/interfaces/projects.type";
 
+
 type ProjectsProps = {
   className: string;
   onImageClick: (imageData: any) => void;
@@ -16,10 +17,15 @@ type ProjectsProps = {
 
 const Projects: React.FC<ProjectsProps> = ({ className, onImageClick , projects }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  React.useEffect(() => {
+    // Preload images when the component mounts
+    projects.forEach(project => {
+      const img = new Image();
+      img.src = project.image.url; // Assuming the image URL is stored in project.image
+    });
+  }, [projects]);
   const handleImageClick = (index: number) => {
     // Call the callback function with the image data
- 
-   
     onImageClick(projects[index].image);
   };
   const handleImageLeave = (index: number) => {
