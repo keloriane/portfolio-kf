@@ -18,9 +18,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, onImageClick, projects, 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleImageClick = (index: number) => {
-  
     onImageClick(imageUrls[index]);
-    console.log("imageUrls ====> " ,imageUrls)
   };
 
   const handleImageLeave = () => {

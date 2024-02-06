@@ -69,7 +69,14 @@ const Cursor: React.FC<CursorProps> = ({ backgroundImage}) => {
       }}
     >
         {
-            backgroundImage && backgroundImage ? (<Image src={backgroundImage} alt="" className="w-full h-full" style={{objectFit:"cover"}}  />) : (<img src={backgroundImage ? backgroundImage : ""} alt="" className="w-full h-full hidden" style={{objectFit:"cover"}}  />) 
+            backgroundImage && backgroundImage ? (<Image 
+              src={backgroundImage} 
+              placeholder="blur"
+              alt="project-image"
+              blurDataURL={backgroundImage} 
+              fill
+              sizes="(max-width: 768px) 900px, (max-width: 1200px) 500px, 320px"
+              className="w-full h-full" style={{objectFit:"cover"}}  />) : (<img src={backgroundImage ? backgroundImage : ""} alt="" className="w-full h-full hidden" style={{objectFit:"cover"}}  />) 
 
         }
 

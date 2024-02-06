@@ -66,7 +66,6 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash , services}) => {
   };
   
   useLayoutEffect(() => {
-    console.log(techs[0]?.current?.childNodes)
     const tabTimeline = gsap.timeline({ paused: true });
     services.forEach((service, index) => {
  
@@ -106,7 +105,7 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash , services}) => {
       <Col colStart={[2 , 2,2,  11]} colEnd={[26, 26, 26, 26]} >
           {
             services.map((service , index) => (
-              <div className="flex flex-col py-[20px] border-b border-t-black border-b-black"
+              <div className=" flex flex-col py-[20px] border-b border-t-black border-b-black"
               key={index} 
               onClick={() => handleTab(index)} 
               onMouseEnter={() => handleMouseEnter(index)}
@@ -137,7 +136,7 @@ const Services:React.FC<ServicesProps> = ({satoshi , clash , services}) => {
                  {
                     <AnimatedText text={service.description} gap={'5px'} splitBy="phrase" duration={.7} as="p" className={twMerge("capitalize lg:text-[22px] md:text-[16px] text-[12px] sm:gap-[2px] md:gap-[10px] xl:gap-[10px] justify-start")} />
                   }
-                  <div className="grid grid-cols-[2fr_1fr] gap-[20px] ">
+                  <div className="grid grid-cols-[2fr_1fr] gap-[20px] w-full ">
                   <div className={twMerge('text-[20px] font-normal' , satoshi)}>
                       <div className="flex items-center flex-wrap gap-4 text-[22px]">
                         {
