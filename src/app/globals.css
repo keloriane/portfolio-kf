@@ -80,7 +80,9 @@ html div {
 }
 @media (max-width:500px) {
 
-  
+  .star-projets {
+    width: 25px;
+  }
   .service-subtitle {
     font-size: calc((35vw - 48px) * 0.1695);
     

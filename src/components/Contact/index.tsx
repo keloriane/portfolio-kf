@@ -1,5 +1,5 @@
 'use client';
-import { useLayoutEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import AnimatedText from '../common/AnimatedText';
 import Container from '../common/Container';
@@ -56,7 +56,7 @@ const Contact = ({ className }: { className: string }) => {
     }
   };
   return (
-    <section className={twMerge('h-auto w-screen', className)}>
+    <section className={twMerge('h-auto w-screen mt-[150px]', className)}>
       <Container className="w-screen">
         <Col colStart={[2, 2, 2, 2]} colEnd={[14, 14, 14, 14]}>
           <div className="font-bold">
@@ -66,19 +66,19 @@ const Contact = ({ className }: { className: string }) => {
               gap="10px"
               duration={0.3}
               as="h2"
-              className="lg:text-[65px] md:text-[40px] sm:text-[21px]"
+              className="lg:text-[65px] md:text-[40px] text-[39px]"
             />
           </div>
         </Col>
-        <Col colStart={[2]} colEnd={[12]}>
+        <Col colStart={[2]} colEnd={[17]}>
           <div className="mt-[60px]">
             <AnimatedText
-              text="I am always looking for freelance  "
+              text="I am always looking for freelance "
               splitBy="phrase"
               gap="10px"
               duration={0.3}
               as="h3"
-              className="lg:text-[40px] md:text-[30px] sm:text-[14px]"
+              className="lg:text-[40px] md:text-[30px] text-[24px]"
             />
             <AnimatedText
               text="opportunities in any company"
@@ -86,7 +86,7 @@ const Contact = ({ className }: { className: string }) => {
               gap="10px"
               duration={0.3}
               as="h3"
-              className="lg:text-[40px] md:text-[30px] sm:text-[14px]"
+              className="lg:text-[40px] md:text-[30px] text-[24px]"
             />
             <AnimatedText
               text="agency or startup"
@@ -94,9 +94,9 @@ const Contact = ({ className }: { className: string }) => {
               gap="10px"
               duration={0.3}
               as="h3"
-              className="lg:text-[40px] md:text-[30px] sm:text-[14px]"
+              className="lg:text-[40px] md:text-[30px] text-[24px]"
             />
-            <p className="lg:text-[40px] md:text-[30px] sm:text-[14px] "> </p>
+            <p className="lg:text-[40px] md:text-[30px] text-[24px] "> </p>
           </div>
         </Col>
       </Container>
@@ -144,14 +144,14 @@ const Contact = ({ className }: { className: string }) => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="mt-[40px]">
+            <div className="mt-[40px] text-black">
               <textarea
                 placeholder="Message"
                 name="message"
                 id=""
                 cols={100}
                 rows={10}
-                className=""
+                className="text-black w-full h-[200px] p-5"
                 value={formData.message}
                 onChange={handleInputChange}
               />
