@@ -41,8 +41,8 @@ const About: React.FC<AboutProps> = ({ clash }) => {
             stroke="hobby-title"
             className={twMerge(
               'font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase',
-              clash,
-            )}
+              clash)
+            }
           />
         </Col>
         <Col colStart={[2]} colEnd={[20]} className="mt-[90px]">
