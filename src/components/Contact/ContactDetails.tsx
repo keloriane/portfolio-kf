@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Col from "../common/Col"
-
+import resume from "./../../assets/docs/resume-min.pdf"
 
 
 
@@ -98,7 +98,7 @@ const ContactDetails = () => {
     
     
                                         </span>
-                                        <Link className="text-[16px]" href="https://www.linkedin.com/in/kevin-flabat-420a74ba/" >
+                                        <Link className="text-[16px]" href={"./../../assets/docs/resume-min.pdf"} target="_blank"  rel="noopener noreferrer" locale={false} download >
                                             Download resume
                                         </Link>
                                     </li>
