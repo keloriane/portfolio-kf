@@ -15,6 +15,7 @@ type AboutProps = {
 const About: React.FC<AboutProps> = ({ clash }) => {
 
 
+
   return (
     <section className="w-screen h-screen flex items-center">
       <Container>
