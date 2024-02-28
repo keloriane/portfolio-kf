@@ -22,7 +22,7 @@ const About: React.FC<AboutProps> = ({ clash }) => {
         <Col colStart={[2]} colEnd={[20]}>
           <Title title="About Me" className={clash} />
           <Characters
-            phrase="Guitar Player"
+            phrase="Guitar Player "
             stroke="hobby-title"
             className={twMerge(
               'font-bold text-[20px] md:text-[50px] lg:text-[80px] uppercase',
