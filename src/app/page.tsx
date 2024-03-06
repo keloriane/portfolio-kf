@@ -3,8 +3,6 @@ import React from 'react';
 import { client } from '../../sanity/lib/client';
 import { groq } from 'next-sanity';
 
-
-
 function getServices() {
   return client.fetch(groq`
   *[_type == "services"]{

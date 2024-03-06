@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import localFont from 'next/font/local';
 import { ServicesPropsData } from '@/interfaces/service.type';
 import { ProjectsPropsData } from '@/interfaces/projects.type';
+import Webgl from '@/components/Webgl';
 
 const satoshi = localFont({
   src: [
@@ -74,6 +75,7 @@ const PageContent: React.FC<PageContentProps> = ({ services, projects }) => {
   };
   return (
     <main>
+      <Webgl />
       <Cursor backgroundImage={imageUrl} />
       <Nav />
       <Hero className={satoshi.className} />

@@ -1,5 +1,4 @@
 'use client'
-// 'use client'
 import React, { useEffect, useRef } from "react";
 import gsap  from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -63,9 +62,7 @@ const Characters = ({  className , phrase, stroke }: { className: string , phras
   return (
       <div ref={container} className="flex">
           <div ref={body} className={twMerge("flex flex-wrap gap-3", className)}>
-        {
-      splitWords(phrase)
-      }
+        {splitWords(phrase)}
       </div>
     </div>
   );
