@@ -8,6 +8,8 @@ import Experiences from "@/components/Experiences";
 import Contact from "@/components/Contact";
 import { groq } from "next-sanity";
 import { client } from "../../sanity/lib/client";
+import { Scene } from "three";
+import SceneComponent from "@/components/Scene";
 
 function getExpertises() {
   return client.fetch(groq`
