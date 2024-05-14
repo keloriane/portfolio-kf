@@ -11,6 +11,28 @@ import gsap from "gsap";
 import Link from "next/link";
 
 const PortfolioGrid = styled(GridContainer)`
+  .title-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    h3 {
+      font-size: 48px;
+      @media (max-width: 780px) {
+        font-size: 32px;
+        text-align: center;
+      }
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      @media (max-width: 780px) {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+  }
   .image_reveal {
     position: absolute;
     display: none;
@@ -118,6 +140,14 @@ const Portfolio = ({ works }: { works: Project[]; title: string }) => {
 
   return (
     <PortfolioGrid colCount={24} colGap={20} rowGap={20} paddingRight={true}>
+      <Col column={[2, 2, 2, 2]} span={[23, 23, 18, 18]}>
+        <div className="title-container">
+          <h3>
+            Showcasing Recent Projects from: <br />
+          </h3>
+          <h2>Agency, Corporate, and Freelance Ventures</h2>
+        </div>
+      </Col>
       <div className="preview">
         <div className="preview-img"></div>
       </div>
