@@ -6,6 +6,7 @@ export const ContactContainer = styled.section`
   flex-direction: column;
   gap: 150px;
   align-items: center;
+  padding-bottom: 150px;
   h3 {
     max-width: 430px;
   }

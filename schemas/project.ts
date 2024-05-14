@@ -23,6 +23,11 @@ export const projects = {
               title: "Title",
             },
             {
+              name: "projectUrl",
+              type: "string",
+              title: "Title",
+            },
+            {
               name: "slug",
               title: "Slug",
               type: "slug",

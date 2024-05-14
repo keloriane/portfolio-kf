@@ -59,7 +59,7 @@ export default async function Home() {
   const projects = await getProjects();
   const expertise = expertises[0];
   const experiences = await getExperiences();
-
+  console.log(projects[0].projectList);
   return (
     <main style={{ display: "flex", height: "100vh" }}>
       <GridContainer colCount={24} colGap={20}>
