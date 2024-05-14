@@ -189,6 +189,7 @@ const Contact = () => {
                   name="firstname"
                   value={formData.firstname}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="inputWrapper">
@@ -200,6 +201,7 @@ const Contact = () => {
                   name="lastname"
                   value={formData.lastname}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="inputWrapper">
@@ -211,6 +213,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="inputWrapper">
@@ -223,6 +226,7 @@ const Contact = () => {
                   rows={10}
                   value={formData.message}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <button type="submit">Send</button>
