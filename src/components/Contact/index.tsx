@@ -6,6 +6,8 @@ import GridContainer from "../common/Container";
 import Col from "../common/Col";
 import Link from "next/link";
 import { theme } from "@/styles/theme";
+import { Toaster } from "react-hot-toast";
+
 const Contact = () => {
   const [formData, setFormData] = React.useState({
     firstname: "",
@@ -40,7 +42,14 @@ const Contact = () => {
       console.log(response.status);
       if (response.status === 200) {
         toast.success(
-          `Hey ${formData.firstname},your message was sent succesfully!`
+          `Thank you ${formData.firstname}, your message was sent successfully!`,
+          {
+            duration: 4000,
+            style: {
+              backgroundColor: "#333",
+              color: "#fff",
+            },
+          }
         );
         console.log("Form submitted successfully!");
         setFormData({
@@ -57,7 +66,8 @@ const Contact = () => {
   };
   return (
     <S.ContactContainer>
-      <GridContainer colCount={19} colGap={20} rowGap={20}>
+      <Toaster />
+      {/* <GridContainer colCount={19} colGap={20} rowGap={20}>
         <Col column={[2, 2, 2, 2]} span={[17, 17, 17, 17]}>
           <div className="meeting__container">
             <div className="meeting__wrapper">
@@ -71,7 +81,7 @@ const Contact = () => {
             </div>
           </div>
         </Col>
-      </GridContainer>
+      </GridContainer> */}
       <div className="form__container">
         <GridContainer colCount={19} colGap={20} rowGap={20}>
           <Col
@@ -140,8 +150,33 @@ const Contact = () => {
                         fill={theme.colors.dark}
                       />
                     </svg>
+                    <p>Brussels Belgium</p>
+                  </li>
+                  <li>
+                    <svg
+                      width="21"
+                      height="22"
+                      viewBox="0 0 21 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.4417 12.6473C12.3612 12.6473 13.9223 11.0863 13.9223 9.16674C13.9223 7.2472 12.3612 5.68615 10.4417 5.68615C8.52215 5.68615 6.96111 7.2472 6.96111 9.16674C6.96111 11.0863 8.52215 12.6473 10.4417 12.6473ZM10.4417 7.42645C11.4015 7.42645 12.182 8.20697 12.182 9.16674C12.182 10.1265 11.4015 10.907 10.4417 10.907C9.48192 10.907 8.7014 10.1265 8.7014 9.16674C8.7014 8.20697 9.48192 7.42645 10.4417 7.42645Z"
+                        fill={theme.colors.dark}
+                      />
+                      <path
+                        d="M9.93703 19.4467C10.0843 19.5518 10.2607 19.6084 10.4417 19.6084C10.6227 19.6084 10.7991 19.5518 10.9464 19.4467C11.2109 19.2596 17.4281 14.7705 17.4029 9.16674C17.4029 5.32852 14.2799 2.20557 10.4417 2.20557C6.6035 2.20557 3.48055 5.32852 3.48055 9.16239C3.45531 14.7705 9.67251 19.2596 9.93703 19.4467ZM10.4417 3.94586C13.321 3.94586 15.6626 6.28742 15.6626 9.17109C15.6809 13.0328 11.8444 16.5003 10.4417 17.6376C9.03991 16.4995 5.20257 13.0311 5.22084 9.16674C5.22084 6.28742 7.5624 3.94586 10.4417 3.94586Z"
+                        fill={theme.colors.dark}
+                      />
+                    </svg>
 
-                    <Link href={""}>Brussels Belgium</Link>
+                    <a
+                      href={"/resume-min.pdf"}
+                      rel="noopener noreferrer"
+                      download
+                    >
+                      Download Resume
+                    </a>
                   </li>
                 </ul>
               </div>

@@ -6,4 +6,5 @@ export interface Project {
   tech: [{ url: string; alt: string }];
   slug: { current: string };
   title?: string;
+  projectUrl: string;
 }

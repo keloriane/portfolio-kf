@@ -33,6 +33,7 @@ function getProjects() {
         tag,
         tech,
         slug,
+        projectUrl,
     }
 }
 `);

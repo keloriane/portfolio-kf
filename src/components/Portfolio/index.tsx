@@ -123,7 +123,7 @@ const Portfolio = ({ works }: { works: Project[]; title: string }) => {
       </div>
       {works.map((work, index) => (
         <Col column={4} span={18} key={index}>
-          <Link href={`projects/${work.slug.current}`}>
+          <Link href={work.projectUrl} target="blank">
             <Image
               src={urlForImage(work.image)}
               alt={work.projectTitle}

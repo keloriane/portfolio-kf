@@ -25,7 +25,7 @@ export const projects = {
             {
               name: "projectUrl",
               type: "string",
-              title: "Title",
+              title: "url",
             },
             {
               name: "slug",
