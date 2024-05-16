@@ -113,7 +113,9 @@ const Contact = () => {
                       />
                     </svg>
 
-                    <Link href={""}>kevin.flabat@protonmail.com</Link>
+                    <Link href={"mailto:kevin.flabat@protonmail.com"}>
+                      kevin.flabat@protonmail.com
+                    </Link>
                   </li>
 
                   <li>
@@ -130,7 +132,7 @@ const Contact = () => {
                       />
                     </svg>
 
-                    <Link href={""}>+32 494 430 347</Link>
+                    <Link href="tel:+32494430347">+32 494 430 347</Link>
                   </li>
 
                   <li>
