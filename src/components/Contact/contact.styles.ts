@@ -7,6 +7,13 @@ export const ContactContainer = styled.section`
   gap: 150px;
   align-items: center;
   padding-bottom: 150px;
+  .submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+  }
   h3 {
     max-width: 430px;
   }

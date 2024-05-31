@@ -157,7 +157,7 @@ const Contact = () => {
                   <li>
                     <svg
                       width="19"
-                      height="25"
+                      height="18"
                       viewBox="0 0 19 25"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +231,9 @@ const Contact = () => {
                   required
                 />
               </div>
-              <button type="submit">Send</button>
+              <button className="submit-button" type="submit">
+                Send
+              </button>
             </form>
           </Col>
         </GridContainer>

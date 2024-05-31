@@ -30,8 +30,8 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Start Boilerplate",
-  description: "Next app starter for future projects",
+  title: "Kevin Flabat",
+  description: "Portfolio of Kevin Flabat",
 };
 
 export default function RootLayout({
